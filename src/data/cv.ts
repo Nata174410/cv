@@ -9,7 +9,7 @@ export const profile = {
   tagline:
     'Transformando datos en decisiones financieras estratégicas con integridad y precisión.',
   summary:
-    'Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia robusta liderando el ciclo contable de extremo a extremo, incluyendo facturación electrónica, nómina y cumplimiento tributario. Perfil orientado a la transformación digital de procesos financieros, con alta capacidad para la toma de decisiones basada en datos y el aseguramiento normativo (NIIF).',
+    'Natalia Daza Gómez es Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia robusta liderando el ciclo contable de extremo a extremo, incluyendo facturación electrónica, nómina y cumplimiento tributario. Perfil orientado a la transformación digital de procesos financieros, con alta capacidad para la toma de decisiones basada en datos y el aseguramiento normativo (NIIF).',
 };
 
 export const seo = {
@@ -34,6 +34,11 @@ export const seo = {
   locale: 'es_CO',
   ogImage: 'og-image.jpg',
   themeColor: '#002d62',
+  // Nombre por el que también se la busca (refuerza el ranking por nombre)
+  alternateName: 'Natalia Daza',
+  // Perfiles externos de la MISMA persona → ayuda a Google a consolidar su identidad.
+  // ⚠️ Reemplaza con las URLs reales de Natalia para máximo efecto.
+  sameAs: ['https://www.linkedin.com/in/natalia-daza'],
 };
 
 // Hojas de vida descargables (generadas con RenderCV). Los archivos viven en /public.

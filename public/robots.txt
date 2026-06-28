@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://Nata174410.github.io/cv/sitemap-index.xml

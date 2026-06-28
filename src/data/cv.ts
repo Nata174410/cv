@@ -12,6 +12,30 @@ export const profile = {
     'Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia robusta liderando el ciclo contable de extremo a extremo, incluyendo facturación electrónica, nómina y cumplimiento tributario. Perfil orientado a la transformación digital de procesos financieros, con alta capacidad para la toma de decisiones basada en datos y el aseguramiento normativo (NIIF).',
 };
 
+export const seo = {
+  title: 'Yennifer Natalia Daza Gómez | Contadora Pública & Analista Contable',
+  description:
+    'Contadora Pública y Analista Contable en Bogotá. Especialista en NIIF, análisis de datos (Power BI), facturación electrónica, nómina y cumplimiento tributario. Transformando datos en decisiones financieras estratégicas.',
+  keywords: [
+    'Contadora Pública',
+    'Analista Contable',
+    'NIIF',
+    'IFRS',
+    'Power BI',
+    'Análisis de Datos',
+    'Facturación Electrónica',
+    'Nómina',
+    'Tributario',
+    'DIAN',
+    'Bogotá',
+    'Colombia',
+    'Yennifer Natalia Daza Gómez',
+  ],
+  locale: 'es_CO',
+  ogImage: 'og-image.jpg',
+  themeColor: '#002d62',
+};
+
 export const navLinks = [
   { href: '#home', label: 'Inicio' },
   { href: '#experience', label: 'Experiencia' },

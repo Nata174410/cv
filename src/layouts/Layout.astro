@@ -1,18 +1,38 @@
 ---
 import '../styles/global.css';
-import { profile } from '../data/cv';
+import { profile, seo, contact } from '../data/cv';
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const {
-  title = `${profile.name} | ${profile.role}`,
-  description = profile.summary,
-} = Astro.props;
+const { title = seo.title, description = seo.description } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// URL canónica absoluta (Astro.site + base + path)
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://Nata174410.github.io/').href;
+const ogImageUrl = new URL(`${base}/${seo.ogImage}`, Astro.site ?? 'https://Nata174410.github.io/').href;
+const email = contact.channels.find((c) => c.href.startsWith('mailto:'))?.href ?? '';
+
+// Datos estructurados (schema.org Person) para resultados enriquecidos
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.role,
+  description: seo.description,
+  image: ogImageUrl,
+  url: canonical,
+  email,
+  knowsAbout: ['NIIF / IFRS', 'Power BI', 'Análisis de Datos', 'Facturación Electrónica', 'Nómina', 'Tributario', 'Auditoría'],
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Fundación Universitaria Los Libertadores' },
+    { '@type': 'EducationalOrganization', name: 'SENA' },
+  ],
+  address: { '@type': 'PostalAddress', addressLocality: 'Bogotá', addressCountry: 'CO' },
+};
 ---
 
 <!doctype html>
@@ -20,10 +40,41 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <title>{title}</title>
 
+    <!-- SEO básico -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={seo.keywords.join(', ')} />
+    <meta name="author" content={profile.name} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content={seo.themeColor} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content={profile.brand} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={seo.locale} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${profile.name} — ${profile.role}`} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Iconos / PWA -->
     <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={`${base}/apple-touch-icon.png`} />
+    <link rel="manifest" href={`${base}/site.webmanifest`} />
+
+    <!-- Datos estructurados -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

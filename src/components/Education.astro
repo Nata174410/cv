@@ -1,0 +1,46 @@
+---
+import { education, certifications } from '../data/cv';
+
+const columns = [
+  { heading: 'Educación', items: education },
+  { heading: 'Certificaciones', items: certifications },
+];
+---
+
+<section
+  id="education"
+  class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-lowest"
+>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+    {
+      columns.map((col) => (
+        <div>
+          <div class="mb-8">
+            <h2 class="font-headline-lg text-headline-lg text-primary mb-2">{col.heading}</h2>
+            <div class="w-12 h-1 bg-secondary" />
+          </div>
+          <div class="space-y-6">
+            {col.items.map((item) => (
+              <div class="bg-surface-container-lowest border border-border-subtle p-5 rounded-lg flex items-start gap-4">
+                <div class="mt-1">
+                  <span class="material-symbols-outlined text-secondary">{item.icon}</span>
+                </div>
+                <div>
+                  <h4 class="font-headline-md text-[18px] text-primary font-semibold">
+                    {item.title}
+                  </h4>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    {item.institution}
+                  </p>
+                  <span class="font-label-caps text-label-caps text-outline uppercase block mt-2">
+                    {item.period}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

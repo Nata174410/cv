@@ -1,0 +1,49 @@
+---
+import { experience } from '../data/cv';
+---
+
+<section
+  id="experience"
+  class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-bg border-y border-border-subtle"
+>
+  <div class="mb-12">
+    <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Trayectoria Profesional</h2>
+    <div class="w-16 h-1 bg-secondary"></div>
+  </div>
+
+  <div class="flex flex-col gap-8">
+    {
+      experience.map((job) => (
+        <div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-6 hover:shadow-[0_4px_12px_rgba(0,45,98,0.05)] transition-shadow">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="md:col-span-1 border-b md:border-b-0 md:border-r border-border-subtle pb-4 md:pb-0 md:pr-4 flex flex-col justify-start">
+              <span class="font-label-caps text-label-caps text-outline uppercase mb-2">
+                {job.period}
+              </span>
+              <span class="font-label-sm text-label-sm text-primary-container font-semibold">
+                {job.company}
+              </span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant mt-1 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">location_on</span>
+                {job.location}
+              </span>
+            </div>
+            <div class="md:col-span-3 flex flex-col">
+              <h3 class="font-headline-md text-headline-md text-primary mb-4">{job.title}</h3>
+              <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+                {job.bullets.map((bullet) => (
+                  <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-secondary text-[20px] mt-1 shrink-0">
+                      check_circle
+                    </span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+import { profile } from '../data/cv';
+const year = new Date().getFullYear();
+---
+
+<footer
+  class="bg-primary w-full py-stack-md px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter"
+>
+  <div class="font-headline-md text-[16px] md:text-headline-md text-on-primary">
+    © {year} {profile.brand}. {profile.role}.
+  </div>
+  <div class="flex gap-6">
+    <a
+      class="font-label-caps text-label-caps text-on-primary hover:text-secondary-fixed-dim transition-colors"
+      href="#home"
+    >
+      Inicio
+    </a>
+    <a
+      class="font-label-caps text-label-caps text-on-primary hover:text-secondary-fixed-dim transition-colors"
+      href="#contact"
+    >
+      Contacto
+    </a>
+  </div>
+</footer>

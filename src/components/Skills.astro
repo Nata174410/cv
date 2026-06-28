@@ -1,0 +1,34 @@
+---
+import { skills } from '../data/cv';
+---
+
+<section
+  id="skills"
+  class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-lowest"
+>
+  <div class="mb-12 text-center">
+    <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Competencias Técnicas</h2>
+    <div class="w-16 h-1 bg-secondary mx-auto"></div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    {
+      skills.map((skill) => (
+        <div class="bg-surface-bg border border-border-subtle p-6 rounded-lg flex flex-col group hover:shadow-[0_4px_12px_rgba(0,45,98,0.05)] transition-all">
+          <div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center mb-4 group-hover:bg-primary-container transition-colors">
+            <span class="material-symbols-outlined text-primary-container group-hover:text-on-primary">
+              {skill.icon}
+            </span>
+          </div>
+          <h4 class="font-headline-md text-[20px] text-primary mb-2">{skill.title}</h4>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">
+            {skill.description}
+          </p>
+          <div class="w-full bg-border-subtle h-1 rounded-full mt-auto">
+            <div class="bg-data-growth h-1 rounded-full" style={`width: ${skill.level}%`} />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

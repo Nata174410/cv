@@ -1,0 +1,17 @@
+---
+import { profile } from '../data/cv';
+---
+
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-lowest">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+    <div class="md:col-span-4">
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Perfil Profesional</h2>
+      <div class="w-16 h-1 bg-secondary mb-8"></div>
+    </div>
+    <div class="md:col-span-8">
+      <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+        {profile.summary}
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import { projects } from '../data/cv';
+---
+
+<section
+  id="projects"
+  class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-bg border-y border-border-subtle"
+>
+  <div class="mb-12 text-center">
+    <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Galería de Proyectos</h2>
+    <div class="w-16 h-1 bg-secondary mx-auto"></div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {
+      projects.map((project) => (
+        <div class="bg-surface-container-lowest border border-border-subtle rounded-lg overflow-hidden hover:shadow-[0_4px_12px_rgba(0,45,98,0.05)] transition-shadow">
+          <div class="h-48 bg-surface-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-6xl text-primary-container">
+              {project.icon}
+            </span>
+          </div>
+          <div class="p-6">
+            <h4 class="font-headline-md text-[20px] text-primary mb-2">{project.title}</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">{project.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

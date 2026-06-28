@@ -1,0 +1,29 @@
+---
+import { contact } from '../data/cv';
+---
+
+<section
+  id="contact"
+  class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-bg border-t border-border-subtle text-center flex flex-col items-center"
+>
+  <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Contacto</h2>
+  <div class="w-16 h-1 bg-secondary mb-12"></div>
+  <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-8">
+    {contact.intro}
+  </p>
+  <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+    {
+      contact.channels.map((channel) => (
+        <a
+          class="flex items-center gap-3 bg-surface-container-lowest border border-border-subtle px-6 py-4 rounded-lg hover:border-primary transition-colors min-w-[250px]"
+          href={channel.href}
+          target={channel.href.startsWith('http') ? '_blank' : undefined}
+          rel={channel.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        >
+          <span class="material-symbols-outlined text-primary-container">{channel.icon}</span>
+          <span class="font-label-sm text-label-sm text-primary">{channel.label}</span>
+        </a>
+      ))
+    }
+  </div>
+</section>

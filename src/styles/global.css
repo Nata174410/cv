@@ -6,8 +6,144 @@
   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
+/* =========================================================
+   Fondo animado del Hero
+   ========================================================= */
 .hero-pattern {
   background-color: #f8f9ff;
   background-image: radial-gradient(#c4c6d1 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+/* Orbes de color difuminados que flotan en el fondo */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(64px);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Anillo de "datos" que rota detrás de la foto */
+.data-ring {
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-pattern {
+    animation: grid-drift 60s linear infinite;
+  }
+  .orb {
+    animation: float 16s ease-in-out infinite;
+  }
+  .orb-2 {
+    animation-duration: 22s;
+    animation-direction: reverse;
+  }
+  .data-ring {
+    animation: spin-slow 48s linear infinite;
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 240px 480px;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-28px) translateX(22px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   Reveal on scroll
+   ========================================================= */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal='left'] {
+  transform: translateX(-34px);
+}
+[data-reveal='right'] {
+  transform: translateX(34px);
+}
+[data-reveal='scale'] {
+  transform: scale(0.95);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================================================
+   Barras de competencias animadas
+   ========================================================= */
+.skill-bar-fill {
+  width: 0;
+  transition: width 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s;
+}
+.is-visible .skill-bar-fill {
+  width: var(--bar-w, 0);
+}
+
+/* Subrayado de acento que crece bajo los títulos */
+.accent-bar {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s;
+}
+.is-visible .accent-bar,
+.is-visible.accent-bar {
+  transform: scaleX(1);
+}
+
+/* Micro-interacción de elevación en tarjetas */
+.lift {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.lift:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   Accesibilidad: respeta reduce-motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  .accent-bar {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .skill-bar-fill {
+    width: var(--bar-w, 0) !important;
+    transition: none !important;
+  }
 }

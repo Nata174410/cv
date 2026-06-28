@@ -8,26 +8,42 @@ const photo = `${base}/yennifer.jpg`;
   id="home"
   class="relative py-section-gap px-margin-mobile md:px-margin-desktop hero-pattern overflow-hidden min-h-[819px] flex items-center border-b border-border-subtle"
 >
+  <!-- Orbes de color flotantes (fondo vivo) -->
+  <div class="orb orb-1 bg-secondary w-72 h-72 -top-10 -left-10"></div>
+  <div class="orb orb-2 bg-primary-container w-80 h-80 bottom-0 right-10"></div>
+
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center relative z-10 w-full">
     <div class="lg:col-span-7 flex flex-col items-start space-y-6">
-      <span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">
+      <span
+        class="font-label-caps text-label-caps text-secondary tracking-widest uppercase"
+        data-reveal
+        style="--reveal-delay: 0ms"
+      >
         {profile.name}
       </span>
-      <h1 class="font-headline-display text-headline-display text-primary max-w-4xl">
+      <h1
+        class="font-headline-display text-headline-display text-primary max-w-4xl"
+        data-reveal
+        style="--reveal-delay: 120ms"
+      >
         {profile.role}
       </h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+      <p
+        class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed"
+        data-reveal
+        style="--reveal-delay: 240ms"
+      >
         {profile.tagline}
       </p>
-      <div class="flex flex-wrap gap-4 pt-4">
+      <div class="flex flex-wrap gap-4 pt-4" data-reveal style="--reveal-delay: 360ms">
         <a
-          class="bg-primary-container text-on-primary px-8 py-3 rounded font-label-sm text-label-sm hover:opacity-90 transition-opacity shadow-sm"
+          class="bg-primary-container text-on-primary px-8 py-3 rounded font-label-sm text-label-sm hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-sm"
           href="#contact"
         >
           Contáctame
         </a>
         <a
-          class="bg-transparent text-secondary border border-secondary px-8 py-3 rounded font-label-sm text-label-sm hover:bg-surface-container transition-colors"
+          class="bg-transparent text-secondary border border-secondary px-8 py-3 rounded font-label-sm text-label-sm hover:bg-surface-container hover:-translate-y-0.5 transition-all"
           href="#experience"
         >
           Ver Trayectoria
@@ -36,8 +52,23 @@ const photo = `${base}/yennifer.jpg`;
     </div>
 
     <!-- Foto de perfil -->
-    <div class="lg:col-span-5 flex justify-center lg:justify-end">
+    <div
+      class="lg:col-span-5 flex justify-center lg:justify-end"
+      data-reveal="scale"
+      style="--reveal-delay: 240ms"
+    >
       <div class="relative">
+        <!-- Anillo de datos que rota lentamente -->
+        <svg
+          class="data-ring absolute -inset-6 w-[calc(100%+3rem)] h-[calc(100%+3rem)] hidden lg:block pointer-events-none"
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="50" cy="50" r="49" stroke="#006a6a" stroke-width="0.4" stroke-dasharray="3 3" opacity="0.5"></circle>
+          <circle cx="50" cy="50" r="42" stroke="#002d62" stroke-width="0.3" stroke-dasharray="1.5 2.5" opacity="0.4"></circle>
+        </svg>
+
         <!-- Acento geométrico (datos / precisión) -->
         <div
           class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-secondary opacity-60 hidden lg:block"
@@ -48,7 +79,7 @@ const photo = `${base}/yennifer.jpg`;
         >
         </div>
         <div
-          class="bg-surface-container-lowest border border-border-subtle rounded-lg p-2 shadow-[0_4px_24px_rgba(0,45,98,0.10)]"
+          class="relative bg-surface-container-lowest border border-border-subtle rounded-lg p-2 shadow-[0_4px_24px_rgba(0,45,98,0.10)]"
         >
           <img
             src={photo}

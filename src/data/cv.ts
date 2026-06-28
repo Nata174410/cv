@@ -3,7 +3,8 @@
 // Solo se exponen canales de comunicación públicos básicos.
 
 export const profile = {
-  brand: 'FISCAL PRECISION',
+  brand: 'Natalia Daza',
+  brandTagline: 'Fiscal Precision',
   name: 'Natalia Daza Gómez',
   role: 'Contadora Pública & Analista Contable',
   tagline:

@@ -1,6 +1,6 @@
 # Fiscal Precision — CV / Portafolio
 
-Portafolio profesional de **Yennifer Natalia Daza Gómez** (Contadora Pública & Analista Contable),
+Portafolio profesional de **Natalia Daza Gómez** (Contadora Pública & Analista Contable),
 construido con [Astro](https://astro.build) + [Tailwind CSS](https://tailwindcss.com) y desplegado
 automáticamente en **GitHub Pages** mediante GitHub Actions.
 

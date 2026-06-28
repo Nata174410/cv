@@ -4,7 +4,7 @@
 
 export const profile = {
   brand: 'FISCAL PRECISION',
-  name: 'Yennifer Natalia Daza Gómez',
+  name: 'Natalia Daza Gómez',
   role: 'Contadora Pública & Analista Contable',
   tagline:
     'Transformando datos en decisiones financieras estratégicas con integridad y precisión.',
@@ -13,7 +13,7 @@ export const profile = {
 };
 
 export const seo = {
-  title: 'Yennifer Natalia Daza Gómez | Contadora Pública & Analista Contable',
+  title: 'Natalia Daza Gómez | Contadora Pública & Analista Contable',
   description:
     'Contadora Pública y Analista Contable en Bogotá. Especialista en NIIF, análisis de datos (Power BI), facturación electrónica, nómina y cumplimiento tributario. Transformando datos en decisiones financieras estratégicas.',
   keywords: [
@@ -29,7 +29,7 @@ export const seo = {
     'DIAN',
     'Bogotá',
     'Colombia',
-    'Yennifer Natalia Daza Gómez',
+    'Natalia Daza Gómez',
   ],
   locale: 'es_CO',
   ogImage: 'og-image.jpg',

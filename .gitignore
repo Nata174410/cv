@@ -25,6 +25,12 @@ pnpm-debug.log*
 .vscode/
 .idea/
 
+# rendercv: entorno y salidas temporales (los PDF publicados viven en /public)
+.venv-rendercv/
+rendercv/rendercv_output/
+rendercv/*.pdf
+rendercv/*.typ
+
 # artefactos de diseño legacy (no se publican; el diseño vive en DESIGN.md)
 stitch_professional_accounting_portfolio.zip
 code.html

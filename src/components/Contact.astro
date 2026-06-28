@@ -1,5 +1,6 @@
 ---
-import { contact } from '../data/cv';
+import { contact, cvDownloads } from '../data/cv';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section
@@ -27,5 +28,27 @@ import { contact } from '../data/cv';
         </a>
       ))
     }
+  </div>
+
+  <!-- Descarga de hoja de vida (ES / EN) -->
+  <div class="mt-12 flex flex-col items-center" data-reveal style="--reveal-delay: 200ms">
+    <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-4">
+      Descargar Hoja de Vida
+    </span>
+    <div class="flex flex-col sm:flex-row gap-4">
+      {
+        cvDownloads.map((cv) => (
+          <a
+            class="lift inline-flex items-center gap-2 bg-primary-container text-on-primary px-6 py-3 rounded font-label-sm text-label-sm hover:opacity-90 shadow-sm"
+            href={`${base}/${cv.file}`}
+            download
+          >
+            <span class="material-symbols-outlined text-[20px]">download</span>
+            {cv.label}
+            <span class="opacity-70">· PDF</span>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </section>

@@ -1,0 +1,100 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
+# Resume (EN) — generated with RenderCV. No sensitive data (no phone number).
+cv:
+  name: Natalia Daza Gómez
+  headline: Public Accountant & Accounting Analyst
+  location: Bogotá, Colombia
+  email: ynataliad@gmail.com
+  photo: photo.jpg
+  website: https://nata174410.github.io/cv
+  social_networks:
+    - network: LinkedIn
+      username: natalia-daza
+  sections:
+    Professional Summary:
+      - Public Accountant graduated from Fundación Universitaria Los Libertadores, with technical training at SENA and specialized certifications in Data Analysis (Power BI) and Collections Management. Strong experience leading the end-to-end accounting cycle, including electronic invoicing, payroll, and tax compliance. Profile oriented toward the digital transformation of financial processes, with a strong capacity for data-driven decision making and regulatory assurance (IFRS).
+    Experience:
+      - company: Reciclajes Bogotá NS SAS
+        position: Integral Accounting Analyst
+        start_date: 2026-01
+        end_date: present
+        location: Bogotá, Colombia
+        highlights:
+          - End-to-end execution of the full accounting cycle, ensuring the integrity of the company's financial information.
+          - Directly responsible for Electronic Invoicing and full Payroll processes, complying with DIAN and UGPP standards.
+          - Implementation of collections-management models and revenue control, optimizing operating cash flow.
+      - company: Grupo Spira SAS
+        position: Accounting Assistant
+        start_date: 2022-08
+        end_date: 2025-12
+        location: Bogotá, Colombia
+        highlights:
+          - Management of large-scale bank reconciliations and administration of accounts receivable/payable.
+          - Support in preparing third-party information returns and reporting financial statements under local and international standards.
+    Education:
+      - institution: Fundación Universitaria Los Libertadores
+        area: Public Accounting
+        degree: Bachelor's
+        start_date: 2021-01
+        end_date: 2025-12
+        location: Bogotá, Colombia
+      - institution: SENA
+        area: Accounting & Financial Management
+        degree: Technologist
+        start_date: 2020-01
+        end_date: 2022-11
+        location: Bogotá, Colombia
+      - institution: Instituto Nacional de Contadores Públicos
+        area: International Taxation
+        degree: Diploma
+        start_date: 2024-08
+        end_date: 2024-11
+        location: Bogotá, Colombia
+    Certifications:
+      - name: Data Analysis — Power BI
+        date: 2025-06
+        summary: Fundación Universitaria Los Libertadores
+      - name: Electronic Invoicing & Collections Management
+        date: 2024-12
+        summary: Colsubsidio
+    Skills:
+      - label: Analysis
+        details: Power BI, Financial Dashboards, Advanced Excel
+      - label: Accounting
+        details: IFRS, Full Accounting Cycle, Auditing
+      - label: Tax
+        details: Third-Party Reporting, Withholding Tax, VAT, Electronic Invoicing
+      - label: Payroll
+        details: Payroll Processing, Social Benefits, Social Security
+    Featured Projects:
+      - name: Electronic Payroll Implementation
+        summary: Successful deployment of the electronic payroll system meeting DIAN requirements, reducing manual errors by 40%.
+      - name: Cash Flow Optimization
+        summary: Design and implementation of a collections-management model that improved asset recovery by 25% per quarter.
+      - name: IFRS Audit for SMEs
+        summary: Led the transition and audit of financial statements under IFRS for small and medium-sized enterprises.
+design:
+  theme: classic
+  page:
+    size: a4
+  colors:
+    name: rgb(0, 45, 98)
+    headline: rgb(0, 106, 106)
+    section_titles: rgb(0, 45, 98)
+    connections: rgb(0, 45, 98)
+    links: rgb(0, 106, 106)
+  typography:
+    font_family:
+      body: Source Sans 3
+      name: Source Sans 3
+      headline: Source Sans 3
+      section_titles: Source Sans 3
+      connections: Source Sans 3
+  header:
+    photo_position: left
+  entries:
+    degree_width: 2.5cm
+locale:
+  language: english
+settings:
+  pdf_title: Natalia Daza Gómez - Resume

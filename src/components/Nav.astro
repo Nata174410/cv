@@ -1,5 +1,6 @@
 ---
-import { profile, navLinks } from '../data/cv';
+import { profile, navLinks, cvDownloads } from '../data/cv';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <nav
@@ -16,12 +17,9 @@ import { profile, navLinks } from '../data/cv';
     {
       navLinks.map((link, i) => (
         <a
-          class={
-            i === 0
-              ? 'text-primary font-bold border-b-2 border-primary pb-1 h-full flex items-center hover:opacity-80 transition-opacity'
-              : 'text-on-surface-variant font-medium hover:text-primary hover:opacity-80 transition-opacity h-full flex items-center'
-          }
+          class:list={['nav-link', { 'is-active': i === 0 }]}
           href={link.href}
+          data-nav={link.href.slice(1)}
         >
           {link.label}
         </a>
@@ -29,12 +27,37 @@ import { profile, navLinks } from '../data/cv';
     }
   </div>
 
-  <a
-    class="hidden md:inline-flex bg-primary-container text-on-primary px-6 py-2 rounded font-label-sm text-label-sm hover:opacity-90 transition-opacity shadow-sm"
-    href="#contact"
-  >
-    Contáctame
-  </a>
+  <!-- CTA: Descargar CV (ES / EN) -->
+  <div class="hidden md:block relative group">
+    <button
+      class="inline-flex items-center gap-1.5 bg-primary-container text-on-primary px-5 py-2 rounded font-label-sm text-label-sm hover:opacity-90 transition-opacity shadow-sm"
+      aria-haspopup="true"
+    >
+      <span class="material-symbols-outlined text-[18px]">download</span>
+      Descargar CV
+      <span class="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform">
+        expand_more
+      </span>
+    </button>
+    <div
+      class="absolute right-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
+    >
+      <div class="bg-surface-container-lowest border border-border-subtle rounded-lg shadow-lg overflow-hidden">
+        {
+          cvDownloads.map((cv) => (
+            <a
+              class="flex items-center justify-between gap-2 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors"
+              href={`${base}/${cv.file}`}
+              download
+            >
+              <span class="font-label-sm text-label-sm">{cv.label}</span>
+              <span class="font-label-caps text-label-caps text-outline">PDF</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 
   <!-- Botón menú móvil -->
   <button id="mobile-menu-btn" class="md:hidden text-primary" aria-label="Abrir menú">
@@ -50,23 +73,61 @@ import { profile, navLinks } from '../data/cv';
   <div class="flex flex-col px-margin-mobile py-4 gap-1">
     {
       navLinks.map((link) => (
-        <a
-          class="text-on-surface-variant font-medium hover:text-primary py-2 transition-colors"
-          href={link.href}
-          data-mobile-link
-        >
+        <a class="nav-link-m" href={link.href} data-nav={link.href.slice(1)} data-mobile-link>
           {link.label}
         </a>
       ))
     }
+    <div class="border-t border-border-subtle mt-2 pt-3 flex flex-col gap-2">
+      <span class="font-label-caps text-label-caps text-outline uppercase pl-3">Descargar CV</span>
+      {
+        cvDownloads.map((cv) => (
+          <a
+            class="flex items-center gap-2 pl-3 py-2 text-primary font-label-sm text-label-sm"
+            href={`${base}/${cv.file}`}
+            download
+            data-mobile-link
+          >
+            <span class="material-symbols-outlined text-[18px]">download</span>
+            {cv.label} <span class="text-outline">(PDF · {cv.lang})</span>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </div>
 
 <script>
+  // Menú móvil
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
   document
     .querySelectorAll('[data-mobile-link]')
     .forEach((l) => l.addEventListener('click', () => menu?.classList.add('hidden')));
+
+  // Scroll-spy: resalta el enlace de la sección visible
+  const sections = [...document.querySelectorAll<HTMLElement>('main section[id]')];
+  const links = [...document.querySelectorAll<HTMLElement>('[data-nav]')];
+  const visible = new Set<string>();
+
+  const setActive = (id: string) => {
+    for (const l of links) l.classList.toggle('is-active', l.dataset.nav === id);
+  };
+
+  if (sections.length && links.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) visible.add(e.target.id);
+          else visible.delete(e.target.id);
+        }
+        // El primero (en orden del documento) que esté visible en la banda central
+        const active = sections.find((s) => visible.has(s.id));
+        if (active) setActive(active.id);
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    );
+    sections.forEach((s) => io.observe(s));
+  }
 </script>

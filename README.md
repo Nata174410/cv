@@ -54,6 +54,39 @@ Dos workflows de GitHub Actions:
 > Si conectas un dominio propio, actualiza `site` y pon `base: '/'` en
 > [`astro.config.mjs`](./astro.config.mjs).
 
+## 📄 Hoja de vida (RenderCV)
+
+La hoja de vida descargable (PDF) se genera con [RenderCV](https://github.com/rendercv/rendercv)
+a partir de archivos YAML, en **español e inglés**:
+
+```
+rendercv/
+├── cv_es.yaml   # contenido en español
+├── cv_en.yaml   # contenido en inglés
+└── photo.jpg    # headshot cuadrado (pre-recortado para el formato CV)
+```
+
+Los PDF resultantes se publican en `public/` y se ofrecen para descarga desde la barra de
+navegación y la sección de contacto:
+
+- `public/Natalia_Daza_CV_ES.pdf`
+- `public/Natalia_Daza_CV_EN.pdf`
+
+### Regenerar los PDF
+
+```bash
+# Requiere Python 3.12+
+python3.12 -m venv .venv-rendercv
+.venv-rendercv/bin/pip install "rendercv[full]"
+
+cd rendercv
+../.venv-rendercv/bin/rendercv render cv_es.yaml --pdf-path ../public/Natalia_Daza_CV_ES.pdf
+../.venv-rendercv/bin/rendercv render cv_en.yaml --pdf-path ../public/Natalia_Daza_CV_EN.pdf
+```
+
+> El tema usa la misma paleta (navy/teal) y tipografía (Source Sans 3) del sitio. No incluye
+> datos sensibles (sin número de teléfono).
+
 ## 🔐 Privacidad
 
 El contenido se gestiona en [`src/data/cv.ts`](./src/data/cv.ts). Se omiten datos sensibles

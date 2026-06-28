@@ -36,12 +36,19 @@ export const seo = {
   themeColor: '#002d62',
 };
 
+// Hojas de vida descargables (generadas con RenderCV). Los archivos viven en /public.
+export const cvDownloads = [
+  { lang: 'ES', label: 'Español', file: 'Natalia_Daza_CV_ES.pdf' },
+  { lang: 'EN', label: 'English', file: 'Natalia_Daza_CV_EN.pdf' },
+];
+
+// El orden sigue el flujo real de la página (para que el scroll-spy avance de izq. a der.)
 export const navLinks = [
   { href: '#home', label: 'Inicio' },
   { href: '#experience', label: 'Experiencia' },
+  { href: '#skills', label: 'Competencias' },
   { href: '#projects', label: 'Proyectos' },
   { href: '#education', label: 'Educación' },
-  { href: '#skills', label: 'Competencias' },
   { href: '#contact', label: 'Contacto' },
 ];
 

@@ -1,0 +1,134 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
+# Hoja de vida (ES) — generada con RenderCV. Sin datos sensibles (sin teléfono).
+cv:
+  name: Natalia Daza Gómez
+  headline: Contadora Pública & Analista Contable
+  location: Bogotá, Colombia
+  email: ynataliad@gmail.com
+  photo: photo.jpg
+  website: https://nata174410.github.io/cv
+  social_networks:
+    - network: LinkedIn
+      username: natalia-daza
+  sections:
+    Perfil Profesional:
+      - Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia robusta liderando el ciclo contable de extremo a extremo, incluyendo facturación electrónica, nómina y cumplimiento tributario. Perfil orientado a la transformación digital de procesos financieros, con alta capacidad para la toma de decisiones basada en datos y el aseguramiento normativo (NIIF).
+    Experiencia:
+      - company: Reciclajes Bogotá NS SAS
+        position: Analista Contable Integral
+        start_date: 2026-01
+        end_date: present
+        location: Bogotá, Colombia
+        highlights:
+          - Ejecución autónoma del ciclo contable completo (End-to-End), garantizando la integridad de la información financiera de la compañía.
+          - Responsable directa de los procesos de Facturación Electrónica y Nómina integral, cumpliendo con los estándares de la DIAN y UGPP.
+          - Implementación de modelos de gestión de cartera y control de recaudos, optimizando el flujo de caja operativo.
+      - company: Grupo Spira SAS
+        position: Auxiliar Contable
+        start_date: 2022-08
+        end_date: 2025-12
+        location: Bogotá, Colombia
+        highlights:
+          - Gestión de conciliaciones bancarias masivas y administración de cuentas por cobrar/pagar.
+          - Apoyo en la preparación de información exógena y reporte de estados financieros bajo estándares locales e internacionales.
+    Educación:
+      - institution: Fundación Universitaria Los Libertadores
+        area: Contaduría Pública
+        degree: Profesional
+        start_date: 2021-01
+        end_date: 2025-12
+        location: Bogotá, Colombia
+      - institution: SENA
+        area: Gestión Contable y Financiera
+        degree: Tecnólogo
+        start_date: 2020-01
+        end_date: 2022-11
+        location: Bogotá, Colombia
+      - institution: Instituto Nacional de Contadores Públicos
+        area: Tributario Internacional
+        degree: Diplomado
+        start_date: 2024-08
+        end_date: 2024-11
+        location: Bogotá, Colombia
+    Certificaciones:
+      - name: Análisis de Datos — Power BI
+        date: 2025-06
+        summary: Fundación Universitaria Los Libertadores
+      - name: Facturación Electrónica y Gestión de Cartera
+        date: 2024-12
+        summary: Colsubsidio
+    Competencias:
+      - label: Análisis
+        details: Power BI, Dashboards Financieros, Excel Avanzado
+      - label: Contabilidad
+        details: NIIF (IFRS), Ciclo Contable Completo, Auditoría
+      - label: Tributario
+        details: Información Exógena, Retención en la Fuente, IVA, Facturación Electrónica
+      - label: Laboral
+        details: Liquidación de Nómina, Prestaciones Sociales, Seguridad Social
+    Proyectos Destacados:
+      - name: Implementación de Nómina Electrónica
+        summary: Despliegue exitoso del sistema de nómina electrónica cumpliendo con los requisitos de la DIAN, reduciendo errores manuales en un 40%.
+      - name: Optimización de Flujo de Caja
+        summary: Diseño e implementación de un modelo de gestión de cartera que mejoró la recuperación de activos en un 25% trimestral.
+      - name: Auditoría NIIF para PYMES
+        summary: Liderazgo en la transición y auditoría de estados financieros bajo estándares NIIF para pequeñas y medianas empresas.
+design:
+  theme: classic
+  page:
+    size: a4
+  colors:
+    name: rgb(0, 45, 98)
+    headline: rgb(0, 106, 106)
+    section_titles: rgb(0, 45, 98)
+    connections: rgb(0, 45, 98)
+    links: rgb(0, 106, 106)
+  typography:
+    font_family:
+      body: Source Sans 3
+      name: Source Sans 3
+      headline: Source Sans 3
+      section_titles: Source Sans 3
+      connections: Source Sans 3
+  header:
+    photo_position: left
+  entries:
+    degree_width: 2.5cm
+locale:
+  language: spanish
+  present: presente
+  last_updated: "Última actualización:"
+  month: mes
+  months: meses
+  year: año
+  years: años
+  phrases:
+    degree_with_area: DEGREE en AREA
+  month_abbreviations:
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sept
+    - oct
+    - nov
+    - dic
+  month_names:
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+settings:
+  pdf_title: Natalia Daza Gómez - Hoja de Vida

@@ -145,6 +145,26 @@
   transform: scaleX(1);
 }
 
+/* =========================================================
+   Enlaces de navegación (scroll-spy)
+   ========================================================= */
+.nav-link {
+  @apply flex h-full items-center border-b-2 border-transparent font-medium text-on-surface-variant transition-colors;
+}
+.nav-link:hover {
+  @apply text-primary;
+}
+.nav-link.is-active {
+  @apply border-primary font-bold text-primary;
+}
+
+.nav-link-m {
+  @apply flex border-l-2 border-transparent py-2 pl-3 font-medium text-on-surface-variant transition-colors;
+}
+.nav-link-m.is-active {
+  @apply border-primary font-bold text-primary;
+}
+
 /* Micro-interacción de elevación en tarjetas */
 .lift {
   transition:

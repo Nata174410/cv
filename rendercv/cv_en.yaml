@@ -2,7 +2,7 @@
 # Resume (EN) — generated with RenderCV. No sensitive data (no phone number).
 cv:
   name: Natalia Daza Gómez
-  headline: Public Accountant & Accounting and Tax Analyst
+  headline: Public Accountant & Accounting and Tax Assistant
   location: Bogotá, Colombia
   email: ynataliad@gmail.com
   photo: photo_round.png
@@ -12,19 +12,18 @@ cv:
       username: natalia-daza
   sections:
     Professional Summary:
-      - Public Accountant graduated from Fundación Universitaria Los Libertadores, with technical training at SENA and specialized certifications in Data Analysis (Power BI) and Collections Management. Experience leading the end-to-end accounting cycle — journal entries, multi-bank reconciliations, provisions, depreciation and deferrals — as well as the tax front — preparation of tax return drafts, management of tax certificates and supporting documents, and review of DIAN reports. Analytical profile with a high level of attention to detail, oriented toward regulatory compliance (IFRS and Colombian tax legislation) and data-driven decision making.
+      - Public Accountant graduated from Fundación Universitaria Los Libertadores, with technical training at SENA and specialized certifications in Data Analysis (Power BI) and Collections Management. Experience managing the end-to-end accounting cycle — journal entries, multi-bank reconciliations, provisions, depreciation and deferrals — as well as the tax front — preparation of tax return drafts, management of tax certificates and supporting documents, and review of DIAN reports. Analytical profile with a high level of attention to detail, oriented toward regulatory compliance (IFRS and Colombian tax legislation) and data-driven decision making.
     Experience:
       - company: Reciclajes Bogotá NS SAS
-        position: Integral Accounting Analyst
+        position: Accounting Assistant
         start_date: 2026-01
         end_date: present
         location: Bogotá, Colombia
         highlights:
           - 'Tax front: preparation of tax return drafts, request and control of withholding certificates as tax support (account 1355), and review of the DIAN purchase-invoice report, ensuring compliance with Colombian tax legislation.'
           - 'Full posting of the accounting cycle: purchases, sales, petty cash (with system reconciliation), cash receipts, payment vouchers, and debit/credit notes, including bank loans.'
-          - Monthly bank reconciliations across three institutions (Banco de Bogotá, Banco Caja Social, and Bancolombia) and reconciliation of advance payments, issuing the account 1330 advances report.
+          - Monthly bank reconciliations and reconciliation of advance payments, issuing the account 1330 advances report.
           - Calculation and posting of depreciation and deferrals in Excel and the accounting system, plus provisioning for receivables and carriers with periodic balance reviews.
-          - 'Internal control and audit support: review of unbalanced or unposted documents and reporting on billing vs. payments, discounts, and pending invoicing.'
       - company: Grupo Spira SAS
         position: Accounting Assistant
         start_date: 2022-08

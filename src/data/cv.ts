@@ -6,20 +6,20 @@ export const profile = {
   brand: 'Natalia Daza',
   brandTagline: 'Fiscal Precision',
   name: 'Natalia Daza Gómez',
-  role: 'Contadora Pública & Analista Contable y Tributaria',
+  role: 'Contadora Pública & Auxiliar Contable y Tributaria',
   tagline:
     'Transformando datos en decisiones financieras estratégicas con integridad y precisión.',
   summary:
-    'Natalia Daza Gómez es Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia liderando el ciclo contable de extremo a extremo — causación, conciliaciones bancarias multibanco, provisiones, depreciaciones y diferidos — y el frente tributario: elaboración de borradores de impuestos, gestión de certificados y soportes fiscales y revisión de reportes DIAN. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.',
+    'Natalia Daza Gómez es Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia gestionando el ciclo contable de extremo a extremo — causación, conciliaciones bancarias multibanco, provisiones, depreciaciones y diferidos — y el frente tributario: elaboración de borradores de impuestos, gestión de certificados y soportes fiscales y revisión de reportes DIAN. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.',
 };
 
 export const seo = {
-  title: 'Natalia Daza Gómez | Contadora Pública & Analista Contable y Tributaria',
+  title: 'Natalia Daza Gómez | Contadora Pública & Auxiliar Contable y Tributaria',
   description:
-    'Contadora Pública y Analista Contable y Tributaria en Bogotá. Especialista en NIIF, legislación fiscal colombiana, borradores de impuestos, conciliaciones bancarias, análisis de datos (Power BI) y cumplimiento tributario. Transformando datos en decisiones financieras estratégicas.',
+    'Contadora Pública y Auxiliar Contable y Tributaria en Bogotá. Especialista en NIIF, legislación fiscal colombiana, borradores de impuestos, conciliaciones bancarias, análisis de datos (Power BI) y cumplimiento tributario. Transformando datos en decisiones financieras estratégicas.',
   keywords: [
     'Contadora Pública',
-    'Analista Contable',
+    'Auxiliar Contable',
     'NIIF',
     'IFRS',
     'Power BI',
@@ -66,13 +66,12 @@ export const experience = [
     period: 'Ene 2026 - Presente',
     company: 'Reciclajes Bogotá NS SAS',
     location: 'Bogotá, Colombia',
-    title: 'Analista Contable Integral',
+    title: 'Auxiliar Contable',
     bullets: [
       'Frente tributario: elaboración de borradores de impuestos, solicitud y control de certificados de retención como soporte fiscal (cuenta 1355) y revisión del informe DIAN de facturas de compra, asegurando el cumplimiento de la legislación fiscal colombiana.',
       'Causación integral del ciclo contable: compras, ventas, caja menor (con conciliación en el sistema), recibos de caja, comprobantes de egreso y registro de notas débito y crédito, incluidos los créditos bancarios.',
-      'Conciliación bancaria mensual de tres entidades (Banco de Bogotá, Banco Caja Social y Bancolombia) y conciliación de anticipos, con emisión del informe de la cuenta 1330.',
+      'Conciliación bancaria mensual y conciliación de anticipos, con emisión del informe de la cuenta 1330.',
       'Cálculo y registro de depreciaciones y diferidos en Excel y en el sistema contable, y constitución de provisiones de cartera y de transportadores con revisión periódica de saldos.',
-      'Control interno y soporte de auditoría: revisión de documentos descuadrados o no contabilizados e informe de facturación vs. pagos, descuentos y pendientes por facturar.',
     ],
   },
   {

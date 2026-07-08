@@ -2,7 +2,7 @@
 # Hoja de vida (ES) — generada con RenderCV. Sin datos sensibles (sin teléfono).
 cv:
   name: Natalia Daza Gómez
-  headline: Contadora Pública & Analista Contable y Tributaria
+  headline: Contadora Pública & Auxiliar Contable y Tributaria
   location: Bogotá, Colombia
   email: ynataliad@gmail.com
   photo: photo_round.png
@@ -12,19 +12,18 @@ cv:
       username: natalia-daza
   sections:
     Perfil Profesional:
-      - Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia liderando el ciclo contable de extremo a extremo — causación, conciliaciones bancarias multibanco, provisiones, depreciaciones y diferidos — y el frente tributario — elaboración de borradores de impuestos, gestión de certificados y soportes fiscales y revisión de reportes DIAN. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.
+      - Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia gestionando el ciclo contable de extremo a extremo — causación, conciliaciones bancarias multibanco, provisiones, depreciaciones y diferidos — y el frente tributario — elaboración de borradores de impuestos, gestión de certificados y soportes fiscales y revisión de reportes DIAN. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.
     Experiencia:
       - company: Reciclajes Bogotá NS SAS
-        position: Analista Contable Integral
+        position: Auxiliar Contable
         start_date: 2026-01
         end_date: present
         location: Bogotá, Colombia
         highlights:
           - 'Frente tributario: elaboración de borradores de impuestos, solicitud y control de certificados de retención como soporte fiscal (cuenta 1355) y revisión del informe DIAN de facturas de compra, asegurando el cumplimiento de la legislación fiscal colombiana.'
           - 'Causación integral del ciclo contable: compras, ventas, caja menor (con conciliación en el sistema), recibos de caja, comprobantes de egreso y registro de notas débito y crédito, incluidos los créditos bancarios.'
-          - Conciliación bancaria mensual de tres entidades (Banco de Bogotá, Banco Caja Social y Bancolombia) y conciliación de anticipos, con emisión del informe de la cuenta 1330.
+          - Conciliación bancaria mensual y conciliación de anticipos, con emisión del informe de la cuenta 1330.
           - Cálculo y registro de depreciaciones y diferidos en Excel y en el sistema contable, y constitución de provisiones de cartera y de transportadores con revisión periódica de saldos.
-          - 'Control interno y soporte de auditoría: revisión de documentos descuadrados o no contabilizados e informe de facturación vs. pagos, descuentos y pendientes por facturar.'
       - company: Grupo Spira SAS
         position: Auxiliar Contable
         start_date: 2022-08

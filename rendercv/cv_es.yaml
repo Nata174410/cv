@@ -20,9 +20,9 @@ cv:
         end_date: present
         location: Bogotá, Colombia
         highlights:
-          - 'Frente tributario: elaboración de borradores de impuestos, solicitud y control de certificados de retención como soporte fiscal (cuenta 1355) y revisión del informe DIAN de facturas de compra, asegurando el cumplimiento de la legislación fiscal colombiana.'
+          - 'Frente tributario: elaboración de borradores de impuestos, solicitud y control de certificados de retención como soporte fiscal y revisión del informe DIAN de facturas de compra, asegurando el cumplimiento de la legislación fiscal colombiana.'
           - 'Causación integral del ciclo contable: compras, ventas, caja menor (con conciliación en el sistema), recibos de caja, comprobantes de egreso y registro de notas débito y crédito, incluidos los créditos bancarios.'
-          - Conciliación bancaria mensual y conciliación de anticipos, con emisión del informe de la cuenta 1330.
+          - Conciliación bancaria mensual y conciliación de anticipos.
           - Cálculo y registro de depreciaciones y diferidos en Excel y en el sistema contable, y constitución de provisiones de cartera y de transportadores con revisión periódica de saldos.
       - company: Grupo Spira SAS
         position: Auxiliar Contable
@@ -61,19 +61,8 @@ cv:
     Competencias:
       - label: Análisis
         details: Power BI, Dashboards Financieros, Excel Avanzado
-      - label: Contabilidad
-        details: NIIF (IFRS), Ciclo Contable Completo, Auditoría
       - label: Tributario
         details: Borradores de Impuestos, Retención en la Fuente, IVA, Información Exógena, Reportes DIAN, Facturación Electrónica
-      - label: Laboral
-        details: Liquidación de Nómina, Prestaciones Sociales, Seguridad Social
-    Proyectos Destacados:
-      - name: Implementación de Nómina Electrónica
-        summary: Despliegue exitoso del sistema de nómina electrónica cumpliendo con los requisitos de la DIAN, reduciendo errores manuales en un 40%.
-      - name: Optimización de Flujo de Caja
-        summary: Diseño e implementación de un modelo de gestión de cartera que mejoró la recuperación de activos en un 25% trimestral.
-      - name: Auditoría NIIF para PYMES
-        summary: Liderazgo en la transición y auditoría de estados financieros bajo estándares NIIF para pequeñas y medianas empresas.
 design:
   theme: classic
   page:

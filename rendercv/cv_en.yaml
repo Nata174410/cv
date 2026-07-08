@@ -20,9 +20,9 @@ cv:
         end_date: present
         location: Bogotá, Colombia
         highlights:
-          - 'Tax front: preparation of tax return drafts, request and control of withholding certificates as tax support (account 1355), and review of the DIAN purchase-invoice report, ensuring compliance with Colombian tax legislation.'
+          - 'Tax front: preparation of tax return drafts, request and control of withholding certificates as tax support, and review of the DIAN purchase-invoice report, ensuring compliance with Colombian tax legislation.'
           - 'Full posting of the accounting cycle: purchases, sales, petty cash (with system reconciliation), cash receipts, payment vouchers, and debit/credit notes, including bank loans.'
-          - Monthly bank reconciliations and reconciliation of advance payments, issuing the account 1330 advances report.
+          - Monthly bank reconciliations and reconciliation of advance payments.
           - Calculation and posting of depreciation and deferrals in Excel and the accounting system, plus provisioning for receivables and carriers with periodic balance reviews.
       - company: Grupo Spira SAS
         position: Accounting Assistant
@@ -61,19 +61,8 @@ cv:
     Skills:
       - label: Analysis
         details: Power BI, Financial Dashboards, Advanced Excel
-      - label: Accounting
-        details: IFRS, Full Accounting Cycle, Auditing
       - label: Tax
         details: Tax Return Drafts, Withholding Tax, VAT, Third-Party Reporting, DIAN Reports, Electronic Invoicing
-      - label: Payroll
-        details: Payroll Processing, Social Benefits, Social Security
-    Featured Projects:
-      - name: Electronic Payroll Implementation
-        summary: Successful deployment of the electronic payroll system meeting DIAN requirements, reducing manual errors by 40%.
-      - name: Cash Flow Optimization
-        summary: Design and implementation of a collections-management model that improved asset recovery by 25% per quarter.
-      - name: IFRS Audit for SMEs
-        summary: Led the transition and audit of financial statements under IFRS for small and medium-sized enterprises.
 design:
   theme: classic
   page:

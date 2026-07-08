@@ -115,8 +115,8 @@ export const education = [
   },
   {
     icon: 'public',
-    title: 'Diplomado en Tributario Internacional',
-    institution: 'Instituto Nacional de Contadores Públicos',
+    title: 'Seminario en Tributario Internacional',
+    institution: 'Fundación Universitaria Los Libertadores',
     period: 'Ago 2024 - Nov 2024',
   },
 ];

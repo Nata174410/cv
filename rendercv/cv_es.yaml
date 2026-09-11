@@ -2,22 +2,31 @@
 # Hoja de vida (ES) — generada con RenderCV. Sin datos sensibles (sin teléfono).
 cv:
   name: Natalia Daza Gómez
-  headline: Contadora Pública & Auxiliar Contable y Tributaria
+  headline: Contadora Pública & Analista Contable
   location: Bogotá, Colombia
   email: ynataliad@gmail.com
   photo: photo_round.png
   website: https://nata174410.github.io/cv
   social_networks:
     - network: LinkedIn
-      username: natalia-daza
+      username: nata-daza
   sections:
     Perfil Profesional:
-      - Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia gestionando el ciclo contable de extremo a extremo — causación, conciliaciones bancarias multibanco, provisiones, depreciaciones y diferidos — y el frente tributario — elaboración de borradores de impuestos, gestión de certificados y soportes fiscales y revisión de reportes DIAN. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.
+      - Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia en análisis contable y tributario, recolección de datos fiscales, preparación de declaraciones e informes gubernamentales, seguimiento de cambios normativos y apoyo a auditorías. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.
     Experiencia:
+      - company: Industrial Taylor Colombia
+        position: Analista Contable
+        start_date: 2026-08
+        location: Bogotá, Colombia
+        highlights:
+          - Recolección y análisis de datos fiscales, preparación de declaraciones fiscales y asistencia en la elaboración de informes gubernamentales.
+          - Seguimiento de cambios en la legislación fiscal y tributaria, y diseño e implementación de estrategias de optimización fiscal conforme a la normativa vigente.
+          - Organización, mantenimiento y resguardo de documentación y archivos fiscales, incluyendo la información requerida para auditorías.
+          - Capacitación y soporte interno en materia fiscal, evaluación y gestión de riesgos fiscales, y ejecución de tareas administrativas relacionadas con el cargo.
       - company: Reciclajes Bogotá NS SAS
         position: Auxiliar Contable
         start_date: 2026-01
-        end_date: present
+        end_date: 2026-07
         location: Bogotá, Colombia
         highlights:
           - 'Frente tributario: elaboración de borradores de impuestos, solicitud y control de certificados de retención como soporte fiscal y revisión del informe DIAN de facturas de compra, asegurando el cumplimiento de la legislación fiscal colombiana.'

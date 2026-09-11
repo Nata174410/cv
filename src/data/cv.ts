@@ -6,17 +6,17 @@ export const profile = {
   brand: 'Natalia Daza',
   brandTagline: 'Fiscal Precision',
   name: 'Natalia Daza Gómez',
-  role: 'Contadora Pública & Auxiliar Contable y Tributaria',
+  role: 'Contadora Pública & Analista Contable',
   tagline:
     'Transformando datos en decisiones financieras estratégicas con integridad y precisión.',
   summary:
-    'Natalia Daza Gómez es Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia gestionando el ciclo contable de extremo a extremo — causación, conciliaciones bancarias multibanco, provisiones, depreciaciones y diferidos — y el frente tributario: elaboración de borradores de impuestos, gestión de certificados y soportes fiscales y revisión de reportes DIAN. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.',
+    'Natalia Daza Gómez es Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia en análisis contable y tributario, recolección de datos fiscales, preparación de declaraciones e informes gubernamentales, seguimiento de cambios normativos y apoyo a auditorías. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.',
 };
 
 export const seo = {
-  title: 'Natalia Daza Gómez | Contadora Pública & Auxiliar Contable y Tributaria',
+  title: 'Natalia Daza Gómez | Contadora Pública & Analista Contable',
   description:
-    'Contadora Pública y Auxiliar Contable y Tributaria en Bogotá. Especialista en NIIF, legislación fiscal colombiana, borradores de impuestos, conciliaciones bancarias, análisis de datos (Power BI) y cumplimiento tributario. Transformando datos en decisiones financieras estratégicas.',
+    'Contadora Pública y Analista Contable en Bogotá. Especialista en NIIF, legislación fiscal colombiana, declaraciones tributarias, informes gubernamentales, análisis de datos (Power BI) y cumplimiento tributario. Transformando datos en decisiones financieras estratégicas.',
   keywords: [
     'Contadora Pública',
     'Auxiliar Contable',
@@ -38,11 +38,8 @@ export const seo = {
   locale: 'es_CO',
   ogImage: 'og-image.jpg',
   themeColor: '#002d62',
-  // Nombre por el que también se la busca (refuerza el ranking por nombre)
   alternateName: 'Natalia Daza',
-  // Perfiles externos de la MISMA persona → ayuda a Google a consolidar su identidad.
-  // ⚠️ Reemplaza con las URLs reales de Natalia para máximo efecto.
-  sameAs: ['https://www.linkedin.com/in/natalia-daza'],
+  sameAs: ['https://www.linkedin.com/in/nata-daza/'],
 };
 
 // Hojas de vida descargables (generadas con RenderCV). Los archivos viven en /public.
@@ -62,7 +59,19 @@ export const navLinks = [
 
 export const experience = [
   {
-    period: 'Ene 2026 - Presente',
+    period: 'Ago 2026 - Presente',
+    company: 'Industrial Taylor Colombia',
+    location: 'Bogotá, Colombia',
+    title: 'Analista Contable',
+    bullets: [
+      'Recolección y análisis de datos fiscales, preparación de declaraciones fiscales y asistencia en la elaboración de informes gubernamentales.',
+      'Seguimiento de cambios en la legislación fiscal y tributaria, y diseño e implementación de estrategias de optimización fiscal conforme a la normativa vigente.',
+      'Organización, mantenimiento y resguardo de documentación y archivos fiscales, incluyendo la información requerida para auditorías.',
+      'Capacitación y soporte interno en materia fiscal, evaluación y gestión de riesgos fiscales, y ejecución de tareas administrativas relacionadas con el cargo.',
+    ],
+  },
+  {
+    period: 'Ene 2026 - Jul 2026',
     company: 'Reciclajes Bogotá NS SAS',
     location: 'Bogotá, Colombia',
     title: 'Auxiliar Contable',
@@ -149,7 +158,7 @@ export const contact = {
     {
       icon: 'link',
       label: 'Perfil en LinkedIn',
-      href: 'https://www.linkedin.com/',
+      href: 'https://www.linkedin.com/in/nata-daza/',
     },
   ],
 };

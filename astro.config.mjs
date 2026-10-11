@@ -9,7 +9,10 @@ export default defineConfig({
   site: 'https://Nata174410.github.io',
   base: '/cv',
   trailingSlash: 'ignore',
-  integrations: [sitemap()],
+  integrations: [
+    // Solo la URL canónica (con "/" final); sin esto el sitemap lista /cv y /cv/.
+    sitemap({ filter: (page) => page.endsWith('/') }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

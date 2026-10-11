@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://Nata174410.github.io/cv/sitemap-index.xml
+Sitemap: https://nata174410.github.io/cv/sitemap-index.xml

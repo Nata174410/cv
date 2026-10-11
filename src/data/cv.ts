@@ -18,27 +18,9 @@ export const profile = {
 
 export const seo = {
   title: 'Natalia Daza Gómez | Contadora Pública & Analista Contable',
+  // ~155 caracteres: lo que Google muestra antes de cortar.
   description:
-    'Contadora Pública y Analista Contable en Bogotá. Especialista en NIIF, legislación fiscal colombiana, declaraciones de renta y tributarias, informes gubernamentales, análisis de datos (Power BI) y cumplimiento tributario. Transformando datos en decisiones financieras estratégicas.',
-  keywords: [
-    'Contadora Pública',
-    'Auxiliar Contable',
-    'NIIF',
-    'IFRS',
-    'Power BI',
-    'Análisis de Datos',
-    'Facturación Electrónica',
-    'Nómina',
-    'Tributario',
-    'Impuestos',
-    'Declaraciones Tributarias',
-    'Declaración de Renta',
-    'Conciliaciones Bancarias',
-    'DIAN',
-    'Bogotá',
-    'Colombia',
-    'Natalia Daza Gómez',
-  ],
+    'Natalia Daza Gómez, Contadora Pública y Analista Contable en Bogotá: declaraciones de renta, IVA y retención, NIIF y análisis de datos con Power BI.',
   locale: 'es_CO',
   ogImage: 'og-image.jpg',
   alternateName: 'Natalia Daza',

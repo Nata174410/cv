@@ -1,13 +1,15 @@
 ---
 import '../styles/global.css';
-import { profile, seo, contact, skills, education, certifications, facts } from '../data/cv';
+import { profile, seo, contact, skills, education, certifications, facts, experience } from '../data/cv';
 
 interface Props {
   title?: string;
   description?: string;
+  // Páginas que no deben indexarse (p. ej. el 404): sin canónica ni datos estructurados.
+  noindex?: boolean;
 }
 
-const { title = seo.title, description = seo.description } = Astro.props;
+const { title = seo.title, description = seo.description, noindex = false } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -39,8 +41,17 @@ const iconNames = [
 const iconsHref = `https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=${iconNames}&display=block`;
 
 // Datos estructurados (schema.org) en un @graph: Person + ProfilePage + WebSite.
-// Refuerza la identidad de Natalia ante Google (Knowledge Graph, sitename).
+// Todo sale de cv.ts para que no se desactualice (empleador actual, formación, certificaciones).
+const site = Astro.site ?? 'https://Nata174410.github.io/';
+const photoUrl = new URL(`${base}/yennifer.jpg`, site).href;
 const personId = `${canonical}#natalia`;
+const [firstName, ...lastNames] = profile.name.split(' ');
+
+// Empleadores actuales: cargos con periodo abierto que no sean práctica independiente.
+const currentJobs = experience.filter((j) => /presente|actualidad/i.test(j.period) && !j.badge);
+// Instituciones de formación sin repetir.
+const schools = [...new Set(education.map((e) => e.institution))];
+
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -48,34 +59,58 @@ const structuredData = {
       '@type': 'Person',
       '@id': personId,
       name: profile.name,
+      givenName: firstName,
+      familyName: lastNames.join(' '),
       alternateName: seo.alternateName,
       jobTitle: profile.role,
       description: seo.description,
-      image: ogImageUrl,
+      image: photoUrl,
       url: canonical,
       email,
       sameAs: seo.sameAs,
-      knowsAbout: ['NIIF / IFRS', 'Declaración de Renta', 'Power BI', 'Análisis de Datos', 'Facturación Electrónica', 'Nómina', 'Tributario', 'Auditoría'],
-      worksFor: { '@type': 'Organization', name: 'Reciclajes Bogotá NS SAS' },
-      alumniOf: [
-        { '@type': 'CollegeOrUniversity', name: 'Fundación Universitaria Los Libertadores' },
-        { '@type': 'EducationalOrganization', name: 'SENA' },
+      knowsLanguage: 'es',
+      knowsAbout: [
+        'Contabilidad',
+        'Declaración de renta de personas naturales',
+        'IVA',
+        'Retención en la fuente',
+        'Información exógena',
+        'NIIF / IFRS',
+        'Power BI',
+        'Análisis de datos',
       ],
+      worksFor: currentJobs.map((j) => ({ '@type': 'Organization', name: j.company })),
+      hasOccupation: {
+        '@type': 'Occupation',
+        name: profile.role,
+        occupationLocation: { '@type': 'City', name: 'Bogotá' },
+      },
+      alumniOf: schools.map((name) => ({ '@type': 'EducationalOrganization', name })),
+      hasCredential: certifications.map((c) => ({
+        '@type': 'EducationalOccupationalCredential',
+        name: c.title,
+        credentialCategory: 'certificate',
+        recognizedBy: { '@type': 'Organization', name: c.institution },
+      })),
       address: { '@type': 'PostalAddress', addressLocality: 'Bogotá', addressCountry: 'CO' },
     },
     {
+      // Google exige `mainEntity` en ProfilePage.
       '@type': 'ProfilePage',
       '@id': `${canonical}#webpage`,
       url: canonical,
       name: seo.title,
-      about: { '@id': personId },
-      inLanguage: 'es',
+      mainEntity: { '@id': personId },
+      dateModified: new Date().toISOString(),
+      inLanguage: 'es-CO',
     },
     {
       '@type': 'WebSite',
+      '@id': `${canonical}#website`,
       url: canonical,
-      name: `${profile.name} — ${profile.role}`,
-      inLanguage: 'es',
+      name: profile.name,
+      alternateName: seo.alternateName,
+      inLanguage: 'es-CO',
     },
   ],
 };
@@ -96,9 +131,11 @@ const structuredDataJson = JSON.stringify(structuredData)
     <!-- SEO básico -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content={seo.keywords.join(', ')} />
     <meta name="author" content={profile.name} />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1'}
+    />
     <meta name="theme-color" content="#f8f9ff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0b1322" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
@@ -115,7 +152,7 @@ const structuredDataJson = JSON.stringify(structuredData)
         document.documentElement.dataset.theme = theme;
       })();
     </script>
-    <link rel="canonical" href={canonical} />
+    {!noindex && <link rel="canonical" href={canonical} />}
 
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:type" content="profile" />
@@ -127,21 +164,26 @@ const structuredDataJson = JSON.stringify(structuredData)
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content={`${profile.name} — ${profile.role}`} />
+    <meta property="profile:first_name" content={firstName} />
+    <meta property="profile:last_name" content={lastNames.join(' ')} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={`${profile.name} — ${profile.role}`} />
 
     <!-- Iconos / PWA -->
+    <link rel="icon" href={`${base}/favicon.ico`} sizes="32x32" />
     <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={`${base}/apple-touch-icon.png`} />
     <link rel="manifest" href={`${base}/site.webmanifest`} />
 
     <!-- Datos estructurados -->
-    <script type="application/ld+json" set:html={structuredDataJson} />
+    {!noindex && <script type="application/ld+json" set:html={structuredDataJson} />}
 
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

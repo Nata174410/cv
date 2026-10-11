@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "description": "Portafolio profesional de Yennifer Natalia Daza Gómez — Contadora Pública & Analista Contable",
   "scripts": {
+    "letter": "tectonic carta_presentacion.tex",
+    "letter:inetum": "tectonic carta_inetum.tex",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",

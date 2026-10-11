@@ -322,12 +322,6 @@ html.theme-transition * {
   width: 1px;
   background: var(--color-border-subtle);
 }
-.tl-item.is-current .tl-body::before {
-  background: linear-gradient(
-    var(--color-secondary),
-    color-mix(in oklab, var(--color-secondary) 25%, var(--color-border-subtle))
-  );
-}
 .tl-item:last-child .tl-body::before {
   display: none;
 }
@@ -530,10 +524,10 @@ html.theme-transition * {
 @keyframes float-y {
   0%,
   100% {
-    transform: translateY(0);
+    translate: 0 0;
   }
   50% {
-    transform: translateY(-8px);
+    translate: 0 -8px;
   }
 }
 
@@ -584,5 +578,214 @@ html.theme-transition * {
   .nav-link::after,
   .menu-pop {
     transition: none !important;
+  }
+}
+
+/* =========================================================
+   Animaciones extra
+   ========================================================= */
+
+/* Hero: el nombre sube línea por línea desde una máscara */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  /* holgura para tildes, descendentes y la inclinación de la cursiva */
+  padding: 0.12em 0.08em 0.16em;
+  margin: -0.12em -0.08em -0.16em;
+}
+.line-inner {
+  display: block;
+}
+
+/* Doble subrayado contable que se dibuja bajo el nombre */
+.total-rule {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 7.5rem;
+}
+.total-rule > span {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-secondary);
+  transform-origin: left;
+}
+
+/* Rótulo de sección que se traza al aparecer */
+.heading-rule {
+  transform-origin: left;
+}
+
+/* Línea de tiempo: relleno teal según el scroll */
+.tl-fill {
+  position: absolute;
+  left: 7px;
+  top: 2.4rem;
+  bottom: -2rem;
+  width: 1px;
+  background: var(--color-secondary);
+  transform-origin: top;
+  transform: scaleY(var(--fill, 0));
+}
+.tl-item:last-child .tl-fill {
+  display: none;
+}
+.tl-dot {
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.tl-item.is-passed .tl-dot {
+  border-color: var(--color-secondary);
+}
+.tl-item.is-passed:not(.is-current) .tl-dot {
+  background: color-mix(in oklab, var(--color-secondary) 35%, var(--color-surface-bg));
+}
+
+/* Brillo que sigue al cursor dentro de las tarjetas */
+.card-hover {
+  position: relative;
+}
+.card-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    380px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--color-secondary) 11%, transparent),
+    transparent 65%
+  );
+}
+.card-hover:hover::after {
+  opacity: 1;
+}
+
+/* Hero: foco de luz que sigue al cursor */
+.hero-spot {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    520px circle at var(--hx, 70%) var(--hy, 30%),
+    color-mix(in oklab, var(--color-secondary) 11%, transparent),
+    transparent 62%
+  );
+}
+#home.is-pointer .hero-spot {
+  opacity: 1;
+}
+
+/* Foto con inclinación 3D; las tarjetas flotan en otra profundidad */
+[data-tilt] {
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+[data-tilt] .float-card {
+  transform: translateZ(48px);
+}
+
+/* Botones magnéticos */
+[data-magnetic] {
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    translate 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* Entradas escalonadas (viñetas, etiquetas, datos) */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(var(--i, 0) * 60ms + 220ms);
+}
+.is-visible .stagger > *,
+.stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .line-inner {
+    animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms) both;
+  }
+  .total-rule > span {
+    animation: draw-x 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+  }
+  .total-rule > span:first-child {
+    animation-delay: 0.75s;
+  }
+  .total-rule > span:last-child {
+    animation-delay: 0.9s;
+  }
+  .heading-rule {
+    transform: scaleX(0);
+    transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.2s;
+  }
+  .is-visible .heading-rule {
+    transform: scaleX(1);
+  }
+  .tl-item.is-current.is-passed .tl-dot {
+    transform: scale(1.12);
+  }
+  .theme-icon-moon,
+  .theme-icon-sun {
+    animation: spin-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes spin-in {
+  from {
+    transform: rotate(-90deg) scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .tl-fill {
+    transform: none;
+  }
+  [data-tilt],
+  [data-tilt] .float-card,
+  [data-magnetic] {
+    transform: none !important;
   }
 }

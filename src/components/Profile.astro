@@ -21,10 +21,10 @@ const body = profile.summary.slice(cut).trim();
       </div>
 
       <div class="lg:col-span-5 lg:pl-8" data-reveal style="--reveal-delay: 200ms">
-        <dl class="card divide-y divide-dashed divide-border-subtle px-6">
+        <dl class="card stagger divide-y divide-dashed divide-border-subtle px-6">
           {
-            facts.map((f) => (
-              <div class="flex items-start gap-4 py-5">
+            facts.map((f, j) => (
+              <div class="flex items-start gap-4 py-5" style={`--i: ${j}`}>
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-[10px] bg-secondary/10 text-secondary">
                   <span class="material-symbols-outlined text-[22px]">{f.icon}</span>
                 </span>

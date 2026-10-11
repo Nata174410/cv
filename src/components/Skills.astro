@@ -41,9 +41,9 @@ const toTags = (description: string) =>
                     </p>
                   </div>
                 </div>
-                <ul class="relative mt-7 flex flex-wrap gap-2" aria-label={`Áreas de ${skill.title}`}>
-                  {tags.map((tag) => (
-                    <li class="inline-flex items-center gap-1.5 rounded-[999px] border border-border-subtle bg-surface-bg px-3.5 py-1.5 text-[15px] font-medium text-on-surface transition-colors group-hover:border-secondary/40">
+                <ul class="stagger relative mt-7 flex flex-wrap gap-2" aria-label={`Áreas de ${skill.title}`}>
+                  {tags.map((tag, j) => (
+                    <li style={`--i: ${j}`} class="inline-flex items-center gap-1.5 rounded-[999px] border border-border-subtle bg-surface-bg px-3.5 py-1.5 text-[15px] font-medium text-on-surface transition-colors group-hover:border-secondary/40">
                       <span class="material-symbols-outlined text-[16px] text-secondary">check</span>
                       {tag}
                     </li>

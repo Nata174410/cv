@@ -16,6 +16,7 @@ const cvEs = cvDownloads[0];
   <div class="ledger" aria-hidden="true"></div>
   <div class="glow glow-a" aria-hidden="true"></div>
   <div class="glow glow-b" aria-hidden="true"></div>
+  <div class="hero-spot" aria-hidden="true"></div>
 
   <div class="wrap relative z-10 flex flex-col justify-center pt-14 pb-12 md:pt-20 lg:min-h-[min(calc(100svh-72px),880px)] lg:pt-16">
     <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-gutter">
@@ -25,18 +26,19 @@ const cvEs = cvDownloads[0];
           class="flex items-center gap-3 text-[13px] font-bold tracking-[0.18em] text-secondary uppercase"
           data-reveal
         >
-          <span class="h-px w-10 bg-current opacity-60" aria-hidden="true"></span>
+          <span class="heading-rule h-px w-10 bg-current opacity-60" aria-hidden="true"></span>
           {profile.role}
         </p>
 
         <h1
           class="mt-6 font-display text-[clamp(3rem,8vw,6rem)] leading-[0.95] font-bold tracking-[-0.03em] text-primary"
-          data-reveal
-          style="--reveal-delay: 100ms"
         >
-          {firstName}
-          <span class="block font-medium text-secondary italic">{lastNames}</span>
+          <span class="line-mask"><span class="line-inner" style="--d: 120ms">{firstName}</span></span>
+          <span class="line-mask">
+            <span class="line-inner font-medium text-secondary italic" style="--d: 260ms">{lastNames}</span>
+          </span>
         </h1>
+        <div class="total-rule mt-6" aria-hidden="true"><span></span><span></span></div>
 
         <p
           class="mt-7 max-w-xl text-lg leading-relaxed text-on-surface-variant md:text-xl"
@@ -48,6 +50,7 @@ const cvEs = cvDownloads[0];
 
         <div class="mt-9 flex flex-wrap items-center gap-3" data-reveal style="--reveal-delay: 300ms">
           <a
+            data-magnetic
             class="group inline-flex items-center gap-2 rounded-[10px] bg-primary-container px-6 py-3.5 font-semibold text-on-primary shadow-[0_10px_24px_-12px_rgb(0_45_98/0.6)] transition hover:-translate-y-0.5 hover:brightness-110"
             href="#contact"
           >
@@ -80,7 +83,7 @@ const cvEs = cvDownloads[0];
 
       <!-- Foto + tarjetas flotantes -->
       <div class="lg:col-span-5" data-reveal="scale" style="--reveal-delay: 200ms">
-        <div class="relative mx-auto w-full max-w-[380px] lg:mr-0">
+        <div class="relative mx-auto w-full max-w-[380px] lg:mr-0" data-tilt>
           <div
             class="absolute -inset-3 rotate-[4deg] rounded-[22px] border border-secondary/40"
             aria-hidden="true"
@@ -150,7 +153,9 @@ const cvEs = cvDownloads[0];
         highlights.map((h) => (
           <div class="flex items-baseline gap-4 py-5 sm:flex-col sm:gap-1 sm:px-6 sm:first:pl-0">
             <dt class="order-2 text-[15px] leading-snug text-on-surface-variant sm:order-none">{h.label}</dt>
-            <dd class="order-1 font-display text-[2.1rem] leading-none font-semibold lining-nums tabular-nums text-primary sm:order-first">
+            <dd
+              data-animate-value={h.value}
+              class="order-1 font-display text-[2.1rem] leading-none font-semibold lining-nums tabular-nums text-primary sm:order-first">
               {h.value}
             </dd>
           </div>

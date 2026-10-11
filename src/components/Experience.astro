@@ -41,6 +41,7 @@ const isCurrent = (period: string) => /presente|actualidad/i.test(period);
               </div>
 
               <div class="tl-body">
+                <span class="tl-fill" aria-hidden="true" />
                 <span class="tl-dot" aria-hidden="true" />
                 <article class="card card-hover p-6 md:p-8">
                   <!-- Fecha en móvil -->
@@ -72,9 +73,9 @@ const isCurrent = (period: string) => /presente|actualidad/i.test(period);
                     {job.company}
                   </p>
 
-                  <ul class="ledger-list mt-6 space-y-3 text-[16.5px] leading-relaxed text-on-surface-variant">
-                    {job.bullets.map((bullet) => (
-                      <li>{bullet}</li>
+                  <ul class="ledger-list stagger mt-6 space-y-3 text-[16.5px] leading-relaxed text-on-surface-variant">
+                    {job.bullets.map((bullet, j) => (
+                      <li style={`--i: ${j}`}>{bullet}</li>
                     ))}
                   </ul>
                 </article>

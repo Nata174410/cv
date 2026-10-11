@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 // GitHub Pages: el sitio se sirve en https://Nata174410.github.io/cv
@@ -9,5 +9,8 @@ export default defineConfig({
   site: 'https://Nata174410.github.io',
   base: '/cv',
   trailingSlash: 'ignore',
-  integrations: [tailwind(), sitemap()],
+  integrations: [sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

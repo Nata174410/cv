@@ -5,14 +5,14 @@ construido con [Astro](https://astro.build) + [Tailwind CSS](https://tailwindcss
 automáticamente en **GitHub Pages** mediante GitHub Actions.
 
 El sistema de diseño ("Fiscal Precision") está documentado en [`DESIGN.md`](./DESIGN.md) y se
-implementa fielmente a través del tema de Tailwind en [`tailwind.config.mjs`](./tailwind.config.mjs).
+implementa fielmente a través del tema de Tailwind (bloque `@theme`) en [`src/styles/global.css`](./src/styles/global.css).
 
 🔗 **Sitio en producción:** https://Nata174410.github.io/cv
 
 ## 🧱 Stack
 
-- **Astro 5** — generación de sitio estático.
-- **Tailwind CSS 3** — utilidades + tokens del sistema de diseño.
+- **Astro 7** — generación de sitio estático (requiere Node ≥ 22.12).
+- **Tailwind CSS 4** — utilidades + tokens del sistema de diseño, vía `@tailwindcss/vite`.
 - **Source Sans 3 / Playfair Display** — tipografías.
 - **Material Symbols** — iconografía.
 
@@ -24,7 +24,7 @@ src/
 ├── layouts/Layout.astro # <head>, fuentes, metadatos
 ├── components/          # Nav, Hero, Profile, Experience, Skills, Projects, Education, Contact, Footer
 ├── pages/index.astro    # Composición de la página
-└── styles/global.css    # Tailwind + estilos base
+└── styles/global.css    # Tailwind (tema con @theme) + estilos base
 .github/workflows/
 ├── deploy.yml           # CD: build + deploy a GitHub Pages (push a main)
 └── ci.yml               # CI: validación de build en cada Pull Request

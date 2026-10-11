@@ -39,7 +39,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       {
         cvDownloads.map((cv) => (
           <a
-            class="lift inline-flex items-center gap-2 bg-primary-container text-on-primary px-6 py-3 rounded font-label-sm text-label-sm hover:opacity-90 shadow-sm"
+            class="lift inline-flex items-center gap-2 bg-primary-container text-on-primary px-6 py-3 rounded font-label-sm text-label-sm hover:opacity-90 shadow-xs"
             href={`${base}/${cv.file}`}
             download
           >

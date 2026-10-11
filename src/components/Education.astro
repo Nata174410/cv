@@ -1,50 +1,90 @@
 ---
 import { education, certifications } from '../data/cv';
-
-const columns = [
-  { heading: 'Educación', items: education },
-  { heading: 'Certificaciones', items: certifications },
-];
+import SectionHeading from './SectionHeading.astro';
 ---
 
 <section
   id="education"
-  class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-lowest"
+  class="border-y border-border-subtle bg-surface-bg py-section-gap md:py-28"
+  aria-labelledby="education-title"
 >
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
-    {
-      columns.map((col) => (
-        <div>
-          <div class="mb-8" data-reveal>
-            <h2 class="font-headline-lg text-headline-lg text-primary mb-2">{col.heading}</h2>
-            <div class="accent-bar w-12 h-1 bg-secondary" />
-          </div>
-          <div class="space-y-6">
-            {col.items.map((item, i) => (
-              <div
-                class="lift bg-surface-container-lowest border border-border-subtle p-5 rounded-lg flex items-start gap-4 hover:shadow-[0_8px_24px_rgba(0,45,98,0.08)]"
+  <div class="wrap">
+    <SectionHeading
+      index="04"
+      eyebrow="Formación"
+      title="Educación y Certificaciones"
+      id="education-title"
+    />
+
+    <div class="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-gutter">
+      <!-- Educación -->
+      <div class="lg:col-span-7">
+        <h3 class="mb-5 text-[13px] font-bold tracking-[0.16em] text-outline uppercase" data-reveal>
+          Educación
+        </h3>
+        <ul class="card divide-y divide-border-subtle overflow-hidden">
+          {
+            education.map((item, i) => (
+              <li
+                class="flex items-start gap-4 p-5 transition-colors hover:bg-surface-container-low md:gap-5 md:p-6"
                 data-reveal
-                style={`--reveal-delay: ${i * 100}ms`}
+                style={`--reveal-delay: ${i * 90}ms`}
               >
-                <div class="mt-1">
-                  <span class="material-symbols-outlined text-secondary">{item.icon}</span>
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-[11px] bg-secondary/10 text-secondary">
+                  <span class="material-symbols-outlined text-[24px]">{item.icon}</span>
+                </span>
+                <div class="min-w-0 flex-1">
+                  <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                    <h4 class="font-display text-[1.2rem] leading-snug font-semibold text-primary">
+                      {item.title}
+                    </h4>
+                    <span class="shrink-0 text-[12px] font-bold tracking-[0.1em] text-outline uppercase tabular-nums">
+                      {item.period}
+                    </span>
+                  </div>
+                  <p class="mt-1 text-on-surface-variant">{item.institution}</p>
                 </div>
-                <div>
-                  <h4 class="font-headline-md text-[18px] text-primary font-semibold">
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Certificaciones -->
+      <div class="lg:col-span-5">
+        <h3 class="mb-5 text-[13px] font-bold tracking-[0.16em] text-outline uppercase" data-reveal>
+          Certificaciones
+        </h3>
+        <div class="grid gap-4">
+          {
+            certifications.map((item, i) => (
+              <div data-reveal style={`--reveal-delay: ${i * 90}ms`}>
+                <article class="card card-hover relative overflow-hidden p-6">
+                  <span
+                    class="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-secondary to-primary-container"
+                    aria-hidden="true"
+                  />
+                  <div class="flex items-start justify-between gap-4">
+                    <span class="material-symbols-outlined icon-fill text-[30px] text-secondary">
+                      {item.icon}
+                    </span>
+                    <span class="rounded-[6px] bg-surface-container px-2 py-1 text-[12px] font-bold tracking-[0.1em] text-outline uppercase tabular-nums">
+                      {item.period}
+                    </span>
+                  </div>
+                  <h4 class="mt-4 font-display text-[1.2rem] leading-snug font-semibold text-primary">
                     {item.title}
                   </h4>
-                  <p class="font-body-md text-body-md text-on-surface-variant">
+                  <p class="mt-1 inline-flex items-center gap-1.5 text-on-surface-variant">
+                    <span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
                     {item.institution}
                   </p>
-                  <span class="font-label-caps text-label-caps text-outline uppercase block mt-2">
-                    {item.period}
-                  </span>
-                </div>
+                </article>
               </div>
-            ))}
-          </div>
+            ))
+          }
         </div>
-      ))
-    }
+      </div>
+    </div>
   </div>
 </section>

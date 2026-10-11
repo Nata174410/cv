@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { profile, seo, contact } from '../data/cv';
+import { profile, seo, contact, skills, education, certifications, facts } from '../data/cv';
 
 interface Props {
   title?: string;
@@ -15,6 +15,28 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://Nata174410.github.io/').href;
 const ogImageUrl = new URL(`${base}/${seo.ogImage}`, Astro.site ?? 'https://Nata174410.github.io/').href;
 const email = contact.channels.find((c) => c.href.startsWith('mailto:'))?.href ?? '';
+
+// Material Symbols: se descarga solo el subconjunto de iconos que usa el sitio
+// (la fuente completa pesa ~1.1 MB). Google exige los nombres en orden alfabético.
+// Si un componente usa un icono nuevo, agrégalo a `uiIcons`.
+const uiIcons = [
+  'arrow_downward', 'arrow_outward', 'arrow_upward', 'check', 'close', 'content_copy',
+  'dark_mode', 'download', 'expand_more', 'light_mode', 'location_on', 'mail', 'menu',
+  'verified', 'work',
+];
+const iconNames = [
+  ...new Set([
+    ...uiIcons,
+    ...facts.map((f) => f.icon),
+    ...skills.map((s) => s.icon),
+    ...education.map((e) => e.icon),
+    ...certifications.map((c) => c.icon),
+    ...contact.channels.map((c) => c.icon),
+  ]),
+]
+  .sort()
+  .join(',');
+const iconsHref = `https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=${iconNames}&display=block`;
 
 // Datos estructurados (schema.org) en un @graph: Person + ProfilePage + WebSite.
 // Refuerza la identidad de Natalia ante Google (Knowledge Graph, sitename).
@@ -77,7 +99,22 @@ const structuredDataJson = JSON.stringify(structuredData)
     <meta name="keywords" content={seo.keywords.join(', ')} />
     <meta name="author" content={profile.name} />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content={seo.themeColor} />
+    <meta name="theme-color" content="#f8f9ff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b1322" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Tema: se fija antes de pintar para evitar el parpadeo (preferencia guardada o la del sistema) -->
+    <script is:inline>
+      (() => {
+        const sys = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        let theme = sys;
+        try {
+          const saved = localStorage.getItem('theme');
+          if (saved === 'dark' || saved === 'light') theme = saved;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="canonical" href={canonical} />
 
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
@@ -110,21 +147,18 @@ const structuredDataJson = JSON.stringify(structuredData)
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-      rel="stylesheet"
-    />
+    <link href={iconsHref} rel="stylesheet" />
   </head>
-  <body
-    class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary"
-  >
+  <body class="bg-background font-sans text-on-surface antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[8px] focus:bg-primary-container focus:px-4 focus:py-2 focus:text-on-primary"
+    >
+      Saltar al contenido
+    </a>
     <slot />
 
     <script>

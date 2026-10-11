@@ -1,0 +1,48 @@
+---
+// Encabezado de sección estilo "informe": número, rótulo y título.
+interface Props {
+  index: string;
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  id?: string;
+  tone?: 'default' | 'inverse';
+}
+
+const { index, eyebrow, title, lead, id, tone = 'default' } = Astro.props;
+const inverse = tone === 'inverse';
+---
+
+<div class="max-w-3xl" data-reveal>
+  <div
+    class:list={[
+      'flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.18em]',
+      inverse ? 'text-[#7fe0de]' : 'text-secondary',
+    ]}
+  >
+    <span class="font-display text-base italic tracking-normal lining-nums tabular-nums">{index}</span>
+    <span class="h-px w-10 bg-current opacity-50" aria-hidden="true"></span>
+    <span>{eyebrow}</span>
+  </div>
+  <h2
+    id={id}
+    class:list={[
+      'mt-4 font-display text-[clamp(2rem,4.2vw,3.1rem)] font-semibold leading-[1.08] tracking-[-0.015em]',
+      inverse ? 'text-white' : 'text-primary',
+    ]}
+  >
+    {title}
+  </h2>
+  {
+    lead && (
+      <p
+        class:list={[
+          'mt-4 text-lg leading-relaxed',
+          inverse ? 'text-white/75' : 'text-on-surface-variant',
+        ]}
+      >
+        {lead}
+      </p>
+    )
+  }
+</div>

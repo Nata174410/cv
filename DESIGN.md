@@ -184,3 +184,17 @@ Buttons and input fields should strictly adhere to this 4px radius. Small tags o
 ### Input Fields
 - Understated styling. 1px gray border that transitions to Navy on focus. 
 - Labels always positioned above the field in `label-sm`.
+## Rediseño editorial (2026)
+
+Evolución del sistema hacia un lenguaje de **reporte financiero editorial**, sin cambiar la paleta ni la marca.
+
+- **Tipografía:** *Playfair Display* para titulares y cifras (con `lining-nums` para que los números no caigan bajo la línea base); *Source Sans 3* para texto y UI. El apellido del hero va en cursiva teal.
+- **Papel contable:** el hero usa renglones horizontales y una doble línea de margen (`.ledger`) como motivo gráfico propio de la contabilidad. El panel de contacto repite los renglones en blanco translúcido.
+- **Secciones numeradas:** cada sección abre con `SectionHeading` (`01 — Perfil`, `02 — Trayectoria`, …), como los capítulos de un informe anual.
+- **Cifras clave:** franja de tres datos en el hero (`highlights` en `cv.ts`); los años de experiencia se calculan en build desde `careerStart`.
+- **Experiencia:** línea de tiempo con fechas a la izquierda en escritorio; insignias **Actual** (punto verde animado) y de tipo de vínculo (p. ej. **Complementaria**, campo `badge`).
+- **Competencias:** etiquetas derivadas de la descripción en lugar de barras de porcentaje.
+- **Formas:** tarjetas a 12px, botones a 10px y etiquetas tipo píldora. Ojo: en el tema `rounded-full` vale `0.75rem`, así que para círculos y píldoras se usa `rounded-[999px]`.
+- **Modo oscuro:** se activa con `data-theme="dark"` en `<html>` (preferencia guardada o la del sistema; un script inline lo fija antes de pintar). Los tokens `--color-*` se redefinen en `global.css`, así que las utilidades no cambian. Los colores fijos se limitan al panel de contacto, que es oscuro en ambos temas.
+- **Iconos:** Material Symbols se carga como subconjunto (`icon_names`) con solo los iconos usados (~4 KB frente a ~1.1 MB). Si un componente usa un icono nuevo, hay que añadirlo a `uiIcons` en `Layout.astro`.
+- **Movimiento:** reveal al hacer scroll, deriva de renglones, tarjetas flotantes y barra de progreso de lectura; todo se desactiva con `prefers-reduced-motion`.

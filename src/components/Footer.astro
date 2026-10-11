@@ -3,24 +3,19 @@ import { profile } from '../data/cv';
 const year = new Date().getFullYear();
 ---
 
-<footer
-  class="bg-primary w-full py-stack-md px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter"
->
-  <div class="font-headline-md text-[16px] md:text-headline-md text-on-primary">
-    © {year} {profile.name} · {profile.role}
-  </div>
-  <div class="flex gap-6">
+<footer class="border-t border-border-subtle">
+  <div class="wrap flex flex-col items-center justify-between gap-4 py-8 text-sm text-on-surface-variant sm:flex-row">
+    <p>
+      © {year} <span class="font-semibold text-primary">{profile.name}</span> · {profile.role}
+    </p>
     <a
-      class="font-label-caps text-label-caps text-on-primary hover:text-secondary-fixed-dim transition-colors"
+      class="group inline-flex items-center gap-1.5 font-semibold transition-colors hover:text-primary"
       href="#home"
     >
-      Inicio
-    </a>
-    <a
-      class="font-label-caps text-label-caps text-on-primary hover:text-secondary-fixed-dim transition-colors"
-      href="#contact"
-    >
-      Contacto
+      Volver arriba
+      <span class="material-symbols-outlined text-[18px] transition-transform group-hover:-translate-y-0.5">
+        arrow_upward
+      </span>
     </a>
   </div>
 </footer>

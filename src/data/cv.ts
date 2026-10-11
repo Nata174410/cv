@@ -7,6 +7,9 @@ export const profile = {
   brandTagline: 'Fiscal Precision',
   name: 'Natalia Daza Gómez',
   role: 'Contadora Pública & Analista Contable',
+  location: 'Bogotá, Colombia',
+  // Inicio de la trayectoria profesional (para calcular los años de experiencia).
+  careerStart: '2022-08',
   tagline:
     'Transformando datos en decisiones financieras estratégicas con integridad y precisión.',
   summary:
@@ -38,10 +41,30 @@ export const seo = {
   ],
   locale: 'es_CO',
   ogImage: 'og-image.jpg',
-  themeColor: '#002d62',
   alternateName: 'Natalia Daza',
   sameAs: ['https://www.linkedin.com/in/nata-daza/'],
 };
+
+// Años completos de experiencia, calculados en build a partir de `careerStart`.
+const [startYear, startMonth] = profile.careerStart.split('-').map(Number);
+const now = new Date();
+const yearsOfExperience = Math.floor(
+  (now.getFullYear() * 12 + now.getMonth() + 1 - (startYear * 12 + startMonth)) / 12
+);
+
+// Cifras clave del hero (estilo "informe anual"). Solo hechos verificables del CV.
+export const highlights = [
+  { value: `${yearsOfExperience}+`, label: 'años de experiencia contable' },
+  { value: 'DIAN', label: 'renta, IVA, retención y exógena' },
+  { value: 'Power BI', label: 'análisis de datos certificado' },
+];
+
+// Datos rápidos del perfil.
+export const facts = [
+  { icon: 'location_on', label: 'Ubicación', value: 'Bogotá, Colombia' },
+  { icon: 'school', label: 'Formación', value: 'Contadora Pública · Los Libertadores' },
+  { icon: 'receipt_long', label: 'Enfoque', value: 'Tributario · NIIF · Datos' },
+];
 
 // Hojas de vida descargables (generadas con RenderCV). Los archivos viven en /public.
 export const cvDownloads = [
@@ -52,6 +75,7 @@ export const cvDownloads = [
 // El orden sigue el flujo real de la página (para que el scroll-spy avance de izq. a der.)
 export const navLinks = [
   { href: '#home', label: 'Inicio' },
+  { href: '#profile', label: 'Perfil' },
   { href: '#experience', label: 'Experiencia' },
   { href: '#skills', label: 'Competencias' },
   { href: '#education', label: 'Educación' },
@@ -73,7 +97,8 @@ export const experience = [
   },
   {
     period: 'Actualidad',
-    company: 'Práctica independiente (complementaria)',
+    company: 'Práctica independiente',
+    badge: 'Complementaria',
     location: 'Bogotá, Colombia',
     title: 'Contadora Pública Independiente',
     bullets: [
@@ -111,13 +136,11 @@ export const skills = [
     icon: 'monitoring',
     title: 'Análisis',
     description: 'Power BI, Dashboards Financieros, Excel Avanzado.',
-    level: 90,
   },
   {
     icon: 'receipt_long',
     title: 'Tributario',
     description: 'Declaración de Renta, IVA, Retención en la Fuente, ICA, Información Exógena, Borradores de Impuestos, Reportes DIAN.',
-    level: 90,
   },
 ];
 

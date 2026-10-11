@@ -1,53 +1,88 @@
 ---
 import { experience } from '../data/cv';
+import SectionHeading from './SectionHeading.astro';
+
+// Un cargo es "actual" si su periodo sigue abierto.
+const isCurrent = (period: string) => /presente|actualidad/i.test(period);
 ---
 
 <section
   id="experience"
-  class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-bg border-y border-border-subtle"
+  class="border-y border-border-subtle bg-surface-bg py-section-gap md:py-28"
+  aria-labelledby="experience-title"
 >
-  <div class="mb-12" data-reveal>
-    <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Trayectoria Profesional</h2>
-    <div class="accent-bar w-16 h-1 bg-secondary"></div>
-  </div>
+  <div class="wrap">
+    <SectionHeading
+      index="02"
+      eyebrow="Trayectoria"
+      title="Trayectoria Profesional"
+      id="experience-title"
+    />
 
-  <div class="flex flex-col gap-8">
-    {
-      experience.map((job, i) => (
-        <div
-          class="lift bg-surface-container-lowest border border-border-subtle rounded-lg p-6 hover:shadow-[0_8px_24px_rgba(0,45,98,0.08)]"
-          data-reveal
-          style={`--reveal-delay: ${i * 120}ms`}
-        >
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="md:col-span-1 border-b md:border-b-0 md:border-r border-border-subtle pb-4 md:pb-0 md:pr-4 flex flex-col justify-start">
-              <span class="font-label-caps text-label-caps text-outline uppercase mb-2">
-                {job.period}
-              </span>
-              <span class="font-label-sm text-label-sm text-primary-container font-semibold">
-                {job.company}
-              </span>
-              <span class="font-label-sm text-label-sm text-on-surface-variant mt-1 flex items-center gap-1">
-                <span class="material-symbols-outlined text-[16px]">location_on</span>
-                {job.location}
-              </span>
-            </div>
-            <div class="md:col-span-3 flex flex-col">
-              <h3 class="font-headline-md text-headline-md text-primary mb-4">{job.title}</h3>
-              <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
-                {job.bullets.map((bullet) => (
-                  <li class="flex items-start gap-2">
-                    <span class="material-symbols-outlined text-secondary text-[20px] mt-1 shrink-0">
-                      check_circle
-                    </span>
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      ))
-    }
+    <ol class="mt-14">
+      {
+        experience.map((job, i) => {
+          const current = isCurrent(job.period);
+          return (
+            <li
+              class:list={['tl-item md:grid md:grid-cols-[11rem_1fr] md:gap-8', { 'is-current': current }]}
+              data-reveal
+              style={`--reveal-delay: ${i * 90}ms`}
+            >
+              <!-- Fecha (columna izquierda en escritorio) -->
+              <div class="hidden pt-7 text-right md:block">
+                <p class="text-[13px] font-bold tracking-[0.12em] text-primary uppercase tabular-nums">
+                  {job.period}
+                </p>
+                <p class="mt-1.5 inline-flex items-center gap-1 text-sm text-on-surface-variant">
+                  <span class="material-symbols-outlined text-[16px]">location_on</span>
+                  {job.location}
+                </p>
+              </div>
+
+              <div class="tl-body">
+                <span class="tl-dot" aria-hidden="true" />
+                <article class="card card-hover p-6 md:p-8">
+                  <!-- Fecha en móvil -->
+                  <p class="mb-3 text-[12px] font-bold tracking-[0.12em] text-outline uppercase tabular-nums md:hidden">
+                    {job.period} · {job.location}
+                  </p>
+
+                  {(current || job.badge) && (
+                    <div class="mb-3 flex flex-wrap gap-2">
+                      {current && (
+                        <span class="inline-flex items-center gap-2 rounded-[999px] bg-data-growth/12 px-2.5 py-1 text-[12px] font-bold tracking-wide text-[#047857] dark:text-data-growth">
+                          <span class="live-dot" aria-hidden="true" />
+                          Actual
+                        </span>
+                      )}
+                      {job.badge && (
+                        <span class="inline-flex items-center rounded-[999px] border border-secondary/40 px-2.5 py-1 text-[12px] font-bold tracking-wide text-secondary">
+                          {job.badge}
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  <h3 class="font-display text-[1.6rem] leading-tight font-semibold text-primary">
+                    {job.title}
+                  </h3>
+                  <p class="mt-1 inline-flex items-center gap-1.5 font-semibold text-secondary">
+                    <span class="material-symbols-outlined text-[18px]">work</span>
+                    {job.company}
+                  </p>
+
+                  <ul class="ledger-list mt-6 space-y-3 text-[16.5px] leading-relaxed text-on-surface-variant">
+                    {job.bullets.map((bullet) => (
+                      <li>{bullet}</li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
+            </li>
+          );
+        })
+      }
+    </ol>
   </div>
 </section>

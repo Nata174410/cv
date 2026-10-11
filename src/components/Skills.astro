@@ -1,38 +1,59 @@
 ---
 import { skills } from '../data/cv';
+import SectionHeading from './SectionHeading.astro';
+
+// Cada competencia lista sus áreas separadas por comas → se muestran como etiquetas.
+const toTags = (description: string) =>
+  description
+    .replace(/\.$/, '')
+    .split(',')
+    .map((t) => t.trim())
+    .filter(Boolean);
 ---
 
-<section
-  id="skills"
-  class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-lowest"
->
-  <div class="mb-12 text-center" data-reveal>
-    <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Competencias Técnicas</h2>
-    <div class="accent-bar w-16 h-1 bg-secondary mx-auto" style="transform-origin: center"></div>
-  </div>
+<section id="skills" class="py-section-gap md:py-28" aria-labelledby="skills-title">
+  <div class="wrap">
+    <SectionHeading index="03" eyebrow="Competencias" title="Competencias Técnicas" id="skills-title" />
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-    {
-      skills.map((skill, i) => (
-        <div
-          class="lift bg-surface-bg border border-border-subtle p-6 rounded-lg flex flex-col group hover:shadow-[0_8px_24px_rgba(0,45,98,0.08)]"
-          data-reveal
-          style={`--reveal-delay: ${i * 100}ms`}
-        >
-          <div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center mb-4 group-hover:bg-primary-container group-hover:scale-110 transition-all">
-            <span class="material-symbols-outlined text-primary-container group-hover:text-on-primary">
-              {skill.icon}
-            </span>
-          </div>
-          <h4 class="font-headline-md text-[20px] text-primary mb-2">{skill.title}</h4>
-          <p class="font-body-md text-body-md text-on-surface-variant mb-4 grow">
-            {skill.description}
-          </p>
-          <div class="w-full bg-border-subtle h-1 rounded-full mt-auto overflow-hidden">
-            <div class="skill-bar-fill bg-data-growth h-1 rounded-full" style={`--bar-w: ${skill.level}%`} />
-          </div>
-        </div>
-      ))
-    }
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      {
+        skills.map((skill, i) => {
+          const tags = toTags(skill.description);
+          return (
+            <div data-reveal style={`--reveal-delay: ${i * 120}ms`}>
+              <article class="card card-hover group relative h-full overflow-hidden p-7 md:p-9">
+                <span
+                  class="pointer-events-none absolute -top-5 right-5 font-display text-[8rem] leading-none font-bold text-secondary/[0.07] lining-nums tabular-nums select-none"
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div class="relative flex items-center gap-4">
+                  <span class="grid h-14 w-14 place-items-center rounded-[14px] bg-primary-container text-on-primary shadow-sm transition-transform duration-300 group-hover:-rotate-6">
+                    <span class="material-symbols-outlined text-[28px]">{skill.icon}</span>
+                  </span>
+                  <div>
+                    <h3 class="font-display text-[1.75rem] leading-tight font-semibold text-primary">
+                      {skill.title}
+                    </h3>
+                    <p class="text-sm font-semibold text-outline tabular-nums">
+                      {tags.length} áreas
+                    </p>
+                  </div>
+                </div>
+                <ul class="relative mt-7 flex flex-wrap gap-2" aria-label={`Áreas de ${skill.title}`}>
+                  {tags.map((tag) => (
+                    <li class="inline-flex items-center gap-1.5 rounded-[999px] border border-border-subtle bg-surface-bg px-3.5 py-1.5 text-[15px] font-medium text-on-surface transition-colors group-hover:border-secondary/40">
+                      <span class="material-symbols-outlined text-[16px] text-secondary">check</span>
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+          );
+        })
+      }
+    </div>
   </div>
 </section>

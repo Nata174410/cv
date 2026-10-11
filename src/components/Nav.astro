@@ -1,128 +1,231 @@
 ---
 import { profile, navLinks, cvDownloads } from '../data/cv';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// Monograma con las iniciales de los dos primeros nombres (p. ej. "ND").
+const monogram = profile.brand
+  .split(' ')
+  .slice(0, 2)
+  .map((w) => w[0])
+  .join('');
 ---
 
-<nav
-  class="bg-surface-container-lowest border-b border-border-subtle sticky top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto shadow-xs"
->
-  <a
-    class="flex flex-col leading-none hover:opacity-80 transition-opacity"
-    href="#home"
-    aria-label={`${profile.name} — ${profile.role}`}
-  >
-    <span class="font-headline-md text-[20px] font-bold text-primary whitespace-nowrap">
-      {profile.brand}
-    </span>
-    <span
-      class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em] mt-1 whitespace-nowrap"
-    >
-      {profile.brandTagline}
-    </span>
-  </a>
+<header id="site-header" class="site-header sticky top-0 z-50">
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <div class="hidden lg:flex gap-6 xl:gap-7 items-center h-full mx-auto px-6">
-    {
-      navLinks.map((link, i) => (
-        <a
-          class:list={['nav-link', { 'is-active': i === 0 }]}
-          href={link.href}
-          data-nav={link.href.slice(1)}
-        >
-          {link.label}
-        </a>
-      ))
-    }
-  </div>
-
-  <!-- CTA: Descargar CV (ES / EN) -->
-  <div class="hidden lg:block relative group">
-    <button
-      class="inline-flex items-center gap-1.5 bg-primary-container text-on-primary px-5 py-2 rounded font-label-sm text-label-sm hover:opacity-90 transition-opacity shadow-xs"
-      aria-haspopup="true"
+  <nav class="wrap flex h-[72px] items-center justify-between gap-4" aria-label="Principal">
+    <a
+      class="group flex items-center gap-3"
+      href="#home"
+      aria-label={`${profile.name} — ${profile.role}`}
     >
-      <span class="material-symbols-outlined text-[18px]">download</span>
-      Descargar CV
-      <span class="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform">
-        expand_more
+      <span
+        class="grid h-10 w-10 place-items-center rounded-[10px] bg-primary-container font-display text-[17px] font-bold italic text-on-primary shadow-sm transition-transform duration-300 group-hover:-rotate-6"
+        aria-hidden="true"
+      >
+        {monogram}
       </span>
-    </button>
-    <div
-      class="absolute right-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
-    >
-      <div class="bg-surface-container-lowest border border-border-subtle rounded-lg shadow-lg overflow-hidden">
+      <span class="flex flex-col leading-none">
+        <span class="font-display text-[19px] font-bold whitespace-nowrap text-primary">
+          {profile.brand}
+        </span>
+        <span class="mt-1 text-[10.5px] font-bold tracking-[0.22em] whitespace-nowrap text-secondary uppercase">
+          {profile.brandTagline}
+        </span>
+      </span>
+    </a>
+
+    <ul class="hidden items-center lg:flex">
+      {
+        navLinks.map((link, i) => (
+          <li>
+            <a
+              class:list={['nav-link', { 'is-active': i === 0 }]}
+              href={link.href}
+              data-nav={link.href.slice(1)}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <!-- Tema claro / oscuro -->
+      <button
+        id="theme-toggle"
+        type="button"
+        class="grid h-10 w-10 place-items-center rounded-[10px] border border-border-subtle text-on-surface-variant transition-colors hover:border-secondary hover:text-primary"
+        aria-label="Cambiar entre tema claro y oscuro"
+        title="Cambiar tema"
+      >
+        <span class="material-symbols-outlined theme-icon-moon text-[20px]">dark_mode</span>
+        <span class="material-symbols-outlined theme-icon-sun text-[20px]">light_mode</span>
+      </button>
+
+      <!-- Descargar CV (ES / EN) -->
+      <div class="dropdown relative hidden lg:block" id="cv-dropdown">
+        <button
+          type="button"
+          class="inline-flex h-10 items-center gap-1.5 rounded-[10px] bg-primary-container px-4 text-[15px] font-semibold text-on-primary shadow-sm transition hover:brightness-110"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="cv-menu"
+        >
+          <span class="material-symbols-outlined text-[18px]">download</span>
+          Descargar CV
+          <span class="material-symbols-outlined text-[18px]">expand_more</span>
+        </button>
+        <div id="cv-menu" class="menu-pop absolute right-0 top-full w-56 pt-2">
+          <div class="card overflow-hidden p-1.5">
+            {
+              cvDownloads.map((cv) => (
+                <a
+                  class="flex items-center justify-between gap-2 rounded-[8px] px-3 py-2.5 text-on-surface-variant transition-colors hover:bg-surface-container-low hover:text-primary"
+                  href={`${base}/${cv.file}`}
+                  download
+                >
+                  <span class="flex items-center gap-2 font-semibold">
+                    <span class="material-symbols-outlined text-[18px] text-secondary">download</span>
+                    {cv.label}
+                  </span>
+                  <span class="rounded-[6px] bg-surface-container px-1.5 py-0.5 text-[11px] font-bold tracking-wider text-outline">
+                    PDF · {cv.lang}
+                  </span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón menú móvil -->
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="grid h-10 w-10 place-items-center rounded-[10px] border border-border-subtle text-primary lg:hidden"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="material-symbols-outlined text-[22px]" data-icon-open>menu</span>
+        <span class="material-symbols-outlined hidden text-[22px]" data-icon-close>close</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menú móvil desplegable -->
+  <div id="mobile-menu" class="hidden border-t border-border-subtle lg:hidden">
+    <div class="wrap flex flex-col gap-1 py-4">
+      {
+        navLinks.map((link) => (
+          <a class="nav-link-m" href={link.href} data-nav={link.href.slice(1)} data-mobile-link>
+            {link.label}
+            <span class="material-symbols-outlined text-[18px] text-outline">arrow_outward</span>
+          </a>
+        ))
+      }
+      <div class="mt-3 grid grid-cols-2 gap-2 border-t border-border-subtle pt-4">
         {
           cvDownloads.map((cv) => (
             <a
-              class="flex items-center justify-between gap-2 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors"
+              class="flex items-center justify-center gap-2 rounded-[10px] bg-primary-container px-3 py-3 font-semibold text-on-primary"
               href={`${base}/${cv.file}`}
               download
+              data-mobile-link
             >
-              <span class="font-label-sm text-label-sm">{cv.label}</span>
-              <span class="font-label-caps text-label-caps text-outline">PDF</span>
+              <span class="material-symbols-outlined text-[18px]">download</span>
+              CV {cv.lang}
             </a>
           ))
         }
       </div>
     </div>
   </div>
-
-  <!-- Botón menú móvil -->
-  <button id="mobile-menu-btn" class="lg:hidden text-primary" aria-label="Abrir menú">
-    <span class="material-symbols-outlined text-2xl">menu</span>
-  </button>
-</nav>
-
-<!-- Menú móvil desplegable -->
-<div
-  id="mobile-menu"
-  class="hidden lg:hidden bg-surface-container-lowest border-b border-border-subtle sticky top-20 w-full z-40 max-w-container-max mx-auto"
->
-  <div class="flex flex-col px-margin-mobile py-4 gap-1">
-    {
-      navLinks.map((link) => (
-        <a class="nav-link-m" href={link.href} data-nav={link.href.slice(1)} data-mobile-link>
-          {link.label}
-        </a>
-      ))
-    }
-    <div class="border-t border-border-subtle mt-2 pt-3 flex flex-col gap-2">
-      <span class="font-label-caps text-label-caps text-outline uppercase pl-3">Descargar CV</span>
-      {
-        cvDownloads.map((cv) => (
-          <a
-            class="flex items-center gap-2 pl-3 py-2 text-primary font-label-sm text-label-sm"
-            href={`${base}/${cv.file}`}
-            download
-            data-mobile-link
-          >
-            <span class="material-symbols-outlined text-[18px]">download</span>
-            {cv.label} <span class="text-outline">(PDF · {cv.lang})</span>
-          </a>
-        ))
-      }
-    </div>
-  </div>
-</div>
+</header>
 
 <script>
-  // Menú móvil
+  const header = document.getElementById('site-header');
+
+  // Menú móvil (con aria-expanded e icono menú/cerrar)
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
-  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  const setMenu = (open: boolean) => {
+    menu?.classList.toggle('hidden', !open);
+    btn?.setAttribute('aria-expanded', String(open));
+    btn?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    btn?.querySelector('[data-icon-open]')?.classList.toggle('hidden', open);
+    btn?.querySelector('[data-icon-close]')?.classList.toggle('hidden', !open);
+  };
+  btn?.addEventListener('click', () => setMenu(menu?.classList.contains('hidden') ?? false));
   document
     .querySelectorAll('[data-mobile-link]')
-    .forEach((l) => l.addEventListener('click', () => menu?.classList.add('hidden')));
+    .forEach((l) => l.addEventListener('click', () => setMenu(false)));
+
+  // Desplegable "Descargar CV": clic para abrir/cerrar, Escape o clic fuera para cerrar
+  const dropdown = document.getElementById('cv-dropdown');
+  const ddBtn = dropdown?.querySelector('button');
+  const setDropdown = (open: boolean) => {
+    if (!dropdown) return;
+    if (open) dropdown.setAttribute('data-open', '');
+    else dropdown.removeAttribute('data-open');
+    ddBtn?.setAttribute('aria-expanded', String(open));
+  };
+  ddBtn?.addEventListener('click', () => setDropdown(!dropdown?.hasAttribute('data-open')));
+  document.addEventListener('click', (e) => {
+    if (dropdown && !dropdown.contains(e.target as Node)) setDropdown(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    setDropdown(false);
+    setMenu(false);
+    if (dropdown?.contains(document.activeElement)) (document.activeElement as HTMLElement).blur();
+  });
+
+  // Tema claro/oscuro (se guarda la elección; si falla el storage, solo aplica en la sesión)
+  const root = document.documentElement;
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.classList.add('theme-transition');
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem('theme', next);
+    } catch {}
+    window.setTimeout(() => root.classList.remove('theme-transition'), 400);
+  });
+  // Si no hay elección guardada, sigue los cambios del sistema
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    let saved: string | null = null;
+    try {
+      saved = localStorage.getItem('theme');
+    } catch {}
+    if (!saved) root.dataset.theme = e.matches ? 'dark' : 'light';
+  });
+
+  // Barra de progreso de lectura + sombra del header al hacer scroll
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      header?.style.setProperty('--progress', p.toFixed(4));
+      if (window.scrollY > 8) header?.setAttribute('data-scrolled', '');
+      else header?.removeAttribute('data-scrolled');
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   // Scroll-spy: resalta el enlace de la sección visible
   const sections = [...document.querySelectorAll<HTMLElement>('main section[id]')];
   const links = [...document.querySelectorAll<HTMLElement>('[data-nav]')];
   const visible = new Set<string>();
-
   const setActive = (id: string) => {
     for (const l of links) l.classList.toggle('is-active', l.dataset.nav === id);
   };
-
   if (sections.length && links.length) {
     const io = new IntersectionObserver(
       (entries) => {

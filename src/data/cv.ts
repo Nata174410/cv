@@ -10,13 +10,13 @@ export const profile = {
   tagline:
     'Transformando datos en decisiones financieras estratégicas con integridad y precisión.',
   summary:
-    'Natalia Daza Gómez es Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia en análisis contable y tributario, recolección de datos fiscales, preparación de declaraciones e informes gubernamentales, seguimiento de cambios normativos y apoyo a auditorías. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.',
+    'Natalia Daza Gómez es Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia en análisis contable y tributario, recolección de datos fiscales, preparación de declaraciones tributarias (renta de personas naturales, IVA y retención en la fuente) e informes gubernamentales, seguimiento de cambios normativos y apoyo a auditorías. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.',
 };
 
 export const seo = {
   title: 'Natalia Daza Gómez | Contadora Pública & Analista Contable',
   description:
-    'Contadora Pública y Analista Contable en Bogotá. Especialista en NIIF, legislación fiscal colombiana, declaraciones tributarias, informes gubernamentales, análisis de datos (Power BI) y cumplimiento tributario. Transformando datos en decisiones financieras estratégicas.',
+    'Contadora Pública y Analista Contable en Bogotá. Especialista en NIIF, legislación fiscal colombiana, declaraciones de renta y tributarias, informes gubernamentales, análisis de datos (Power BI) y cumplimiento tributario. Transformando datos en decisiones financieras estratégicas.',
   keywords: [
     'Contadora Pública',
     'Auxiliar Contable',
@@ -29,6 +29,7 @@ export const seo = {
     'Tributario',
     'Impuestos',
     'Declaraciones Tributarias',
+    'Declaración de Renta',
     'Conciliaciones Bancarias',
     'DIAN',
     'Bogotá',
@@ -71,6 +72,17 @@ export const experience = [
     ],
   },
   {
+    period: 'Actualidad',
+    company: 'Práctica independiente (complementaria)',
+    location: 'Bogotá, Colombia',
+    title: 'Contadora Pública Independiente',
+    bullets: [
+      'Declaraciones de renta de personas naturales ante la DIAN.',
+      'Declaraciones de IVA y de retención en la fuente.',
+      'Información exógena, ICA, RUT y demás trámites ante la DIAN.',
+    ],
+  },
+  {
     period: 'Ene 2026 - Jul 2026',
     company: 'Reciclajes Bogotá NS SAS',
     location: 'Bogotá, Colombia',
@@ -104,7 +116,7 @@ export const skills = [
   {
     icon: 'receipt_long',
     title: 'Tributario',
-    description: 'Borradores de Impuestos, Retención en la Fuente, IVA, Información Exógena, Reportes DIAN.',
+    description: 'Declaración de Renta, IVA, Retención en la Fuente, ICA, Información Exógena, Borradores de Impuestos, Reportes DIAN.',
     level: 90,
   },
 ];

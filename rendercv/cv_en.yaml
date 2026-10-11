@@ -12,7 +12,7 @@ cv:
       username: nata-daza
   sections:
     Professional Summary:
-      - Public Accountant graduated from Fundación Universitaria Los Libertadores, with technical training at SENA and specialized certifications in Data Analysis (Power BI) and Collections Management. Experience in accounting and tax analysis, collecting tax data, preparing tax returns and government reports, monitoring regulatory changes, and supporting audits. Analytical profile with a high level of attention to detail, oriented toward regulatory compliance (IFRS and Colombian tax legislation) and data-driven decision making.
+      - Public Accountant graduated from Fundación Universitaria Los Libertadores, with technical training at SENA and specialized certifications in Data Analysis (Power BI) and Collections Management. Experience in accounting and tax analysis, collecting tax data, preparing tax returns (individual income tax, VAT and withholding tax) and government reports, monitoring regulatory changes, and supporting audits. Analytical profile with a high level of attention to detail, oriented toward regulatory compliance (IFRS and Colombian tax legislation) and data-driven decision making.
     Experience:
       - company: Industrial Taylor Colombia
         position: Accounting Analyst
@@ -23,6 +23,14 @@ cv:
           - Monitoring changes in tax legislation and designing and implementing tax optimization strategies in accordance with current regulations.
           - Organization, maintenance, and safeguarding of tax documentation and files, including information required for audits.
           - Internal tax training and support, assessment and management of potential tax risks, and related administrative duties.
+      - company: Independent practice (concurrent)
+        position: Independent Certified Public Accountant
+        date: Present
+        location: Bogotá, Colombia
+        highlights:
+          - Individual income tax returns filed with the DIAN.
+          - VAT and withholding tax returns.
+          - Third-party reporting, ICA, RUT registration and other DIAN procedures.
       - company: Reciclajes Bogotá NS SAS
         position: Accounting Assistant
         start_date: 2026-01
@@ -71,11 +79,12 @@ cv:
       - label: Analysis
         details: Power BI, Financial Dashboards, Advanced Excel
       - label: Tax
-        details: Tax Return Drafts, Withholding Tax, VAT, Third-Party Reporting, DIAN Reports, Electronic Invoicing
+        details: Income Tax Returns, VAT, Withholding Tax, Municipal Tax (ICA), Third-Party Reporting, Tax Return Drafts, DIAN Reports, Electronic Invoicing
 design:
   theme: classic
   page:
     size: a4
+    bottom_margin: 1.4cm
   colors:
     name: rgb(0, 45, 98)
     headline: rgb(0, 106, 106)
@@ -93,6 +102,8 @@ design:
     photo_position: left
   entries:
     degree_width: 2.5cm
+  sections:
+    space_between_regular_entries: 0.8em
 locale:
   language: english
 settings:

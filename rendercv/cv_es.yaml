@@ -12,7 +12,7 @@ cv:
       username: nata-daza
   sections:
     Perfil Profesional:
-      - Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia en análisis contable y tributario, recolección de datos fiscales, preparación de declaraciones e informes gubernamentales, seguimiento de cambios normativos y apoyo a auditorías. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.
+      - Contadora Pública graduada de la Fundación Universitaria Los Libertadores, con formación tecnológica en el SENA y certificaciones especializadas en Análisis de Datos (Power BI) y Gestión de Cartera. Experiencia en análisis contable y tributario, recolección de datos fiscales, preparación de declaraciones tributarias (renta de personas naturales, IVA y retención en la fuente) e informes gubernamentales, seguimiento de cambios normativos y apoyo a auditorías. Perfil analítico, con alto nivel de atención al detalle, orientado al cumplimiento normativo (NIIF y legislación fiscal colombiana) y a la toma de decisiones basada en datos.
     Experiencia:
       - company: Industrial Taylor Colombia
         position: Analista Contable
@@ -23,6 +23,14 @@ cv:
           - Seguimiento de cambios en la legislación fiscal y tributaria, y diseño e implementación de estrategias de optimización fiscal conforme a la normativa vigente.
           - Organización, mantenimiento y resguardo de documentación y archivos fiscales, incluyendo la información requerida para auditorías.
           - Capacitación y soporte interno en materia fiscal, evaluación y gestión de riesgos fiscales, y ejecución de tareas administrativas relacionadas con el cargo.
+      - company: Práctica independiente (complementaria)
+        position: Contadora Pública Independiente
+        date: Actualidad
+        location: Bogotá, Colombia
+        highlights:
+          - Declaraciones de renta de personas naturales ante la DIAN.
+          - Declaraciones de IVA y de retención en la fuente.
+          - Información exógena, ICA, RUT y demás trámites ante la DIAN.
       - company: Reciclajes Bogotá NS SAS
         position: Auxiliar Contable
         start_date: 2026-01
@@ -71,11 +79,12 @@ cv:
       - label: Análisis
         details: Power BI, Dashboards Financieros, Excel Avanzado
       - label: Tributario
-        details: Borradores de Impuestos, Retención en la Fuente, IVA, Información Exógena, Reportes DIAN, Facturación Electrónica
+        details: Declaración de Renta, IVA, Retención en la Fuente, ICA, Información Exógena, Borradores de Impuestos, Reportes DIAN, Facturación Electrónica
 design:
   theme: classic
   page:
     size: a4
+    bottom_margin: 1.4cm
   colors:
     name: rgb(0, 45, 98)
     headline: rgb(0, 106, 106)
@@ -93,6 +102,8 @@ design:
     photo_position: left
   entries:
     degree_width: 2.5cm
+  sections:
+    space_between_regular_entries: 0.8em
 locale:
   language: spanish
   present: presente

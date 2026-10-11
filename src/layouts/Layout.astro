@@ -57,6 +57,12 @@ const structuredData = {
     },
   ],
 };
+
+// Se escapan "<" y los separadores de línea U+2028/U+2029 para que ningún valor pueda cerrar el <script> ni romper el JSON-LD.
+const structuredDataJson = JSON.stringify(structuredData)
+  .replace(/</g, '\\u003c')
+  .replace(/\u2028/g, '\\u2028')
+  .replace(/\u2029/g, '\\u2029');
 ---
 
 <!doctype html>
@@ -98,7 +104,7 @@ const structuredData = {
     <link rel="manifest" href={`${base}/site.webmanifest`} />
 
     <!-- Datos estructurados -->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={structuredDataJson} />
 
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

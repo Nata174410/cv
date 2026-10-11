@@ -36,3 +36,9 @@ stitch_professional_accounting_portfolio.zip
 code.html
 screen.png
 nath.png
+
+# cartas de presentación (LaTeX): contienen datos personales y destinatarios, no se publican
+carta_*.tex
+carta_*.pdf
+carta_*.aux
+carta_*.log

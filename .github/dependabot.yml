@@ -1,0 +1,21 @@
+# Mantiene actualizadas las GitHub Actions y las dependencias npm mediante
+# Pull Requests automáticos semanales de Dependabot.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    # Agrupa las actualizaciones minor y patch en un solo PR.
+    groups:
+      npm-minor-patch:
+        update-types:
+          - minor
+          - patch

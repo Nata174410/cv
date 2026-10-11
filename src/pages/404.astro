@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { profile } from '../data/cv';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout title={`Página no encontrada | ${profile.name}`} noindex>
+  <main id="main" class="relative grid min-h-svh place-items-center overflow-hidden px-margin-mobile">
+    <div class="ledger" aria-hidden="true"></div>
+    <div class="glow glow-a" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-xl text-center">
+      <p class="font-display text-[clamp(6rem,20vw,10rem)] leading-none font-bold text-primary lining-nums">
+        4<span class="text-secondary italic">0</span>4
+      </p>
+      <div class="mx-auto mt-4 flex w-40 flex-col gap-1.5" aria-hidden="true">
+        <span class="h-[3px] rounded-[2px] bg-secondary"></span>
+        <span class="h-[3px] rounded-[2px] bg-secondary"></span>
+      </div>
+      <h1 class="mt-8 font-display text-3xl font-semibold text-primary md:text-4xl">
+        Esta página no cuadra en los libros
+      </h1>
+      <p class="mt-4 text-lg text-on-surface-variant">
+        El enlace puede estar mal escrito o la página ya no existe.
+      </p>
+      <a
+        href={`${base}/`}
+        class="mt-9 inline-flex items-center gap-2 rounded-[10px] bg-primary-container px-6 py-3.5 font-semibold text-on-primary transition hover:-translate-y-0.5 hover:brightness-110"
+      >
+        <span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+        Volver al inicio
+      </a>
+    </div>
+  </main>
+</Layout>
